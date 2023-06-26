@@ -1,0 +1,123 @@
+.recommendations {
+  display: flex;
+
+  flex-direction: column;
+  border-radius: 20px;
+
+  &--ul {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.movie-poster {
+  position: relative;
+
+  width: 266px;
+  z-index: 1;
+  &--btn {
+    position: absolute;
+    z-index: 2;
+    top: 19px;
+    left: 19px;
+    display: flex;
+    padding: 4px 8px;
+    gap: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #00a340;
+    color: #ffff;
+  }
+  &--btn:hover {
+    transition: filter 0.5s ease;
+    filter: brightness(1.2);
+    @keyframes brightnessAnimation {
+      from {
+        filter: brightness(1);
+      }
+      to {
+        filter: brightness(1.2);
+      }
+    }
+  }
+
+  h3 {
+    padding-top: 24px;
+    width: 266px;
+  }
+
+  h2 {
+    padding: 5px 0;
+  }
+  p {
+    padding-top: 4px;
+  }
+  ul {
+    display: flex;
+    gap: 30px;
+  }
+}
+
+.movie-poster {
+  &--img {
+    width: 266px;
+    height: 357px;
+    border-radius: 20px;
+    background-color: #2f3545;
+  }
+  &--img:hover {
+    outline: 2px solid rgb(48, 48, 48);
+    transition: filter 0.5s ease;
+    filter: brightness(1.2);
+    @keyframes brightnessAnimation {
+      from {
+        filter: brightness(1);
+      }
+      to {
+        filter: brightness(1.2);
+      }
+    }
+  }
+  &:hover .movie-poster--favorites {
+    opacity: 1;
+  }
+
+  &--favorites {
+    position: absolute;
+    z-index: 2;
+    top: 19px;
+    right: 19px;
+    display: flex;
+    padding: 4px 8px;
+    gap: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #00a340;
+    color: #ffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: 10px;
+      bottom: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover,
+    &::before:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.react-multiple-carousel__arrow--right,
+.react-multiple-carousel__arrow--left {
+  top: 160px;
+}

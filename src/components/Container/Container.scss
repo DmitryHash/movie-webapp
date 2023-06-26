@@ -1,0 +1,44 @@
+.container {
+    max-width: 1130px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    row-gap: 72px;
+    padding: 0px 5px 0;
+}
+
+.dark{
+    color: #000;
+    background-color: #fff;
+
+    svg {
+        path {
+            fill: #000;
+        }
+    }
+
+    h3 {
+        color: #000;
+    }
+}
+
+.light {
+    color: #fff;
+    background-color: #000;
+
+    svg {
+        path {
+            fill: #fff;
+        }
+    }
+
+    span {
+        color: #fff
+    }
+
+    h3, h2 {
+        color: #fff;
+    } 
+}

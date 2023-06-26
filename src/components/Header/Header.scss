@@ -1,0 +1,56 @@
+.header {
+    height: 84px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    // position: relative;
+
+
+    &__box {
+        display: flex;
+        align-items: center;
+    }
+
+        .moodal {
+            position: absolute;
+            top: 30px;
+            right: 21%;
+        }
+
+    &__search-box {
+        display: flex;
+
+    }
+
+    &__search-input {
+        flex: 1;
+    }
+
+    .logotype {
+        cursor: pointer;
+    }
+}
+
+.search-input {
+    width: 900px;
+    height: 56px;
+    padding: 0 20px;
+    // background-color: #5360cd;
+    border: none;
+    color: #fff;
+    outline: none;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: #323537;
+    border: 2px solid transparent;
+
+    &::placeholder {
+        color: #fff;
+        opacity: .5;
+    }
+
+    &:focus {
+        border: 2px solid purple;
+    }
+}

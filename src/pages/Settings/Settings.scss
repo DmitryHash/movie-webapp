@@ -1,0 +1,43 @@
+.settings {
+
+    &__form-profile {
+        display: flex;
+        width: 100%;
+        height: 170px;
+        background-color: #242426;
+        border-radius: 10px;
+        color: #fff;
+        align-items: center;
+        column-gap: 40px;
+        padding: 72px 40px;
+        margin-bottom: 40px;
+    }
+
+    &__form-password {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 350px;
+        background-color: #242426;
+        border-radius: 10px;
+        color: #fff;
+        justify-content: center;
+        column-gap: 40px;
+        padding: 72px 40px;
+        row-gap: 15px;
+        // margin-top: 40px;
+
+        &-lol {
+            width: 100px;
+        }
+    }
+
+    &_btn {
+        display: flex;
+        width: 266px;
+        height: 56px;
+        justify-content: center;
+        column-gap: 40px;
+        margin-top: 48px;
+    }
+}

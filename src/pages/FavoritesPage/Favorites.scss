@@ -1,0 +1,8 @@
+.container{
+    &--ul {
+        max-width: 1130px;
+        flex-wrap: wrap;
+        display: flex;
+        gap: 15px;
+    }
+}

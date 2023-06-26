@@ -1,0 +1,173 @@
+.movie-details {
+  display: flex;
+  width: max-content;
+  gap: 42px;
+
+  Button{
+    margin-top: 10px;
+  }
+  .movie-info {
+    &--plot {
+      width: 878px;
+      padding-bottom: 40px;
+    }
+    h1 {
+    }
+
+    h2 {
+      color: #afb2b6;
+    }
+
+    ul {
+      li {
+        margin: 20px 0;
+        list-style-type: none;
+      }
+    }
+    .movie-rating {
+      display: flex;
+      gap: 10px;
+      padding-top: 26px;
+      padding-bottom: 42px;
+
+      &--green {
+        background-color: #00a340;
+      }
+    }
+    span {
+      background: #323537;
+      border-radius: 6px;
+      padding: 2px 8px;
+      color: #ffffff;
+
+      font-family: "Exo 2";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    &--genres {
+      display: flex;
+      gap: 54px;
+      line-height: 24px;
+      font-family: "Exo 2";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+.loader {
+  --path: #2f3545;
+  --dot: #5628ee;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  &:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    background: var(--dot);
+    top: 37px;
+    left: 19px;
+    transform: translate(-18px, -18px);
+    animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+      infinite;
+  }
+  svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    rect,
+    polygon,
+    circle {
+      fill: none;
+      stroke: var(--path);
+      stroke-width: 10px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    polygon {
+      stroke-dasharray: 145 (221 - 145) 145 (221 - 145);
+      stroke-dashoffset: 0;
+      animation: pathTriangle var(--duration)
+        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    rect {
+      stroke-dasharray: (256 / 4 * 3) (256 / 4) (256 / 4 * 3) (256 / 4);
+      stroke-dashoffset: 0;
+      animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+    circle {
+      stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
+      stroke-dashoffset: 75;
+      animation: pathCircle var(--duration)
+        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+  }
+  &.triangle {
+    width: 48px;
+    &:before {
+      left: 21px;
+      transform: translate(-10px, -18px);
+      animation: dotTriangle var(--duration)
+        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+  }
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+  66% {
+    stroke-dashoffset: 147;
+  }
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+
+@keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+  66% {
+    transform: translate(10px, -18px);
+  }
+  100% {
+    transform: translate(-10px, -18px);
+  }
+}
+
+.loader {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+body {
+  min-height: 100vh;
+  background: #f5f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .dribbble {
+    position: fixed;
+    display: block;
+    right: 20px;
+    bottom: 20px;
+    img {
+      display: block;
+      height: 28px;
+    }
+  }
+}

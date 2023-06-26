@@ -1,0 +1,35 @@
+
+.sign-up {
+    background: url();
+    
+    &__form {
+        margin: 72px auto 0;
+        max-width: 624px;
+        border: 1px solid transparent;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        background-color: #242426;
+        border-radius: 10px;
+        color: #fff;
+
+        &-description { 
+            text-align: center;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 500;
+            color: #8D8E97;
+        }
+
+        &-link {
+            color: #2231aa;
+        }
+    }
+}
+
+.mainLogo {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}

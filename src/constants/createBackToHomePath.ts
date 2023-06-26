@@ -1,0 +1,1 @@
+export const createBackToHomePath = {name: 'Back to main page', url: '/posts', isActive: true};
