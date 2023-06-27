@@ -2,7 +2,6 @@ import { FC } from 'react';
 import './SearchCard.scss';
 import { DateCard } from '../../../../components/DateCard/DateCard';
 import { TypographyText } from '../../../../components/Typography/TypographyText';
-import { ActionsCard } from '../../../../components/ActionsCard/ActionsCard';
 
 interface ISearchCard {
     id: number;
@@ -27,7 +26,6 @@ export const SearchCard: FC<ISearchCard> = ({id, date, image, title, dislike, li
                     <TypographyText content={title} type='H3'/>
                 </div>
             </div>
-            <ActionsCard id={id} like={like} dislike={dislike} />
         </div>
     )
 };
