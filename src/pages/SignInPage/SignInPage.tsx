@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { TypographyText } from '../../components/Typography/TypographyText';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
-import { createBackToHomePath } from '../../constants/createBackToHomePath';
 import { postLogin } from '../../api/postLogin';
 import './SignInPage.scss';
 import { Header } from '../../components/Header/Header';
@@ -94,7 +93,6 @@ export const SignInPage: FC = () => {
                 <Link to={'/'}><Logotype/></Link>
             </div>
             <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
-            {/* <Breadcrumbs path={[createBackToHomePath]} /> */}
             <form className='sign-in__form'>
             <TypographyText content='Sign In' type='H1'/>
                 <Input
@@ -116,9 +114,6 @@ export const SignInPage: FC = () => {
                         errorMessage={errors.password}
                     />
                     {errors.detail && <div className='sign-in__error-message'>{errors.detail}</div>}
-                    {/* <a className='sign-in__form-forgot' href="https://example.com">
-                        Forgot password?
-                    </a> */}
                 </div>
                 <Button content='Sign In' onClick={handleSubmit} type='primary' isDisabled={!Object.values(errors).every(error => error === '')} />
                 <p className='sign-in__form-description'>
