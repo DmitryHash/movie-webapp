@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from 'react';
 import './ActivatePage.scss';
 import { TypographyText } from '../../components/Typography/TypographyText';
 import { Button } from '../../components/Button/Button';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 import { createBackToHomePath } from '../../constants/createBackToHomePath';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Spinner } from '../../components/Spinner/Spinner';
@@ -40,7 +39,6 @@ export const ActivatePage: FC= () => {
         <>
             {isActivate && (
                 <div className='activate-page'>
-                    <Breadcrumbs path={[createBackToHomePath]} />
                     <TypographyText content='Success' type='H1'/>
                     <div className="activate-page__content">
                         <div>
@@ -59,7 +57,6 @@ export const ActivatePage: FC= () => {
             {isLoading && <Spinner />}
             {isError && (
                 <div className='activate-page'>
-                    <Breadcrumbs path={[createBackToHomePath]} />
                     <TypographyText content='Activation failed' type='H1'/>
                     <div className="activate-page__content">
                         <p className="activate-page__text">

@@ -11,7 +11,6 @@ import { useParams } from 'react-router-dom';
 import { getPost } from '../../api/getPost';
 import { IPost } from '../../interfaces/IPost';
 import { Spinner } from '../../components/Spinner/Spinner';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 import { useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
 
@@ -42,7 +41,6 @@ export const PostPage: FC= () => {
         <div className='post'>
             {post && (
                 <>
-                    <Breadcrumbs path={breadcrumbsPaths(post)} />
                     <TypographyText content={post.title} type='H1'/>
                     <div className="post__img-box">
                         <img src={post.image} alt={post.title} className="post__img" />

@@ -2,7 +2,6 @@ import { FC, useEffect } from 'react';
 import { TypographyText } from '../../components/Typography/TypographyText';
 import { Button } from '../../components/Button/Button';
 import './RegistrationConfirmPage.scss';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 import { createBackToHomePath } from '../../constants/createBackToHomePath';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -28,7 +27,6 @@ export const RegistrationConfirmPage: FC = () => {
 
     return (
         <div className='registration-confrim'>
-            <Breadcrumbs path={[createBackToHomePath]} />
             <TypographyText content='Registration Confirmation' type='H1'/>
             <div className='registration-confrim__content'>
                 <div>
