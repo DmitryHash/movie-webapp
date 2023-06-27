@@ -17,14 +17,14 @@ interface IMovie {
 export const Movies: FC<IMovies> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [movies] = useState<IMovie[]>([
-    { title: 'Attack On Titan', from: 0, to: 1 },
-    { title: 'Black Clover', from: 0, to: 1 },
-    { title: 'Hunter x hunter', from: 0, to: 1 },
-    { title: 'My Hero Academia', from: 1, to: 2 },
-    { title: 'Initial D', from: 0, to: 1 },
-    { title: 'FullMetal Alchemist', from: 0, to: 1 },
-    { title: 'Jujutsu Kaisen', from: 1, to: 2 },
-    { title: 'Demon Slayer', from: 1, to: 2 },
+    { title: 'Snatch', from: 0, to: 1 },
+    { title: 'Lock, Stock and Two Smoking Barrels', from: 0, to: 1 },
+    { title: 'RocknRolla', from: 0, to: 1 },
+    { title: 'Revolver', from: 0, to: 1 },
+    { title: 'fast and furious', from: 0, to: 1 },
+    { title: '2 Fast 2 Furious', from: 0, to: 1 },
+    { title: 'The Fast and the Furious: Tokyo Drift', from: 0, to: 1 },
+    { title: 'Superfast!', from: 0, to: 1 },
   ]);
 
   const handleCountShowFilms = () => {

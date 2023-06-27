@@ -1,4 +1,4 @@
-.burgerMenu {
+.burgerMenu  {
     width: 84px;
     height: 84px;
     background-color: #000;
@@ -16,7 +16,7 @@
             z-index: 100;
             width: 236px;
             height: 450px;
-            background-color: #000;
+            // background-color: #000;
             transform: translateX(-250px);
             transition: transform .3s ease-in-out;
             display: flex;
@@ -42,7 +42,7 @@
             height: 100%;
             font-weight: 600;
             cursor: pointer;
-            color: #fff;
+            // color: #fff;
     
             &:hover {
               color: #2231aa;
@@ -54,7 +54,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
+            // color: #fff;
         }
         
         &__theme-btn {
@@ -70,7 +70,7 @@
             cursor: auto;
     
             svg path { 
-              fill: #DADADA;
+              // fill: #DADADA;
             }
           }
         }
