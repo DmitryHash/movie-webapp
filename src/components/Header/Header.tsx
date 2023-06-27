@@ -7,6 +7,8 @@ import { CancelIcon, UserIcon, Logotype } from '../../assets/icons';
 import { useNavigate } from 'react-router';
 import './Header.scss';
 import { ModalFilter } from '../ModalFilter/ModalFilter';
+import { useAppSelector } from '../../store/hooks';
+import { isDarktheme } from '../../store/theme/selectors';
 
 
 interface IHeader {
@@ -24,6 +26,7 @@ export const Header: FC<IHeader> = ({
 }) => {
   const navigate = useNavigate();
   const isLogged = false;
+  const isDark = useAppSelector(isDarktheme);
 
   const handleClickToSignIn = () => {
     navigate('/sign-in');
@@ -36,12 +39,12 @@ export const Header: FC<IHeader> = ({
   const inputClass = `search-input ${isSearchDisabled && 'search-film__disabled'}`;
 
   return (
-    <header className="header">
+    <header className={`header ${isDark ? 'dark' : 'light'}`}>
       <BurgerMenu />
       <div className="search">
         <div className="search__input">
           <div className='moodal'>
-            <ModalFilter onClose={() => {}}/>
+            <ModalFilter onClose={() => { }} />
           </div>
           <input
             className={inputClass}

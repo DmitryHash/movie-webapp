@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
+    // background-color: #000;
     // position: relative;
 
 
@@ -12,11 +12,11 @@
         align-items: center;
     }
 
-        .moodal {
-            position: absolute;
-            top: 30px;
-            right: 21%;
-        }
+    .moodal {
+        position: absolute;
+        top: 30px;
+        right: 21%;
+    }
 
     &__search-box {
         display: flex;
@@ -36,7 +36,7 @@
     width: 900px;
     height: 56px;
     padding: 0 20px;
-    // background-color: #5360cd;
+    background-color: #5360cd;
     border: none;
     color: #fff;
     outline: none;
@@ -46,7 +46,7 @@
     border: 2px solid transparent;
 
     &::placeholder {
-        color: #fff;
+        // color: #fff;
         opacity: .5;
     }
 

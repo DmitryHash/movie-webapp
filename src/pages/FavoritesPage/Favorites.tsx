@@ -6,12 +6,9 @@ import { Link } from "react-router-dom";
 import { IMovie } from "../../components/MainPageFilms/Movies/RecommendationsFilm";
 import { TypographyText } from "../../components/Typography/TypographyText";
 import { Logotype } from "../../assets/icons";
-
-
-
 import { Header } from "../../components/Header/Header";
-import "./Favorites.scss"
 import { MovieListFilter } from "../../components/YearFilter/YearFilter";
+import "./Favorites.scss"
 
 
 interface FavoritesProps {
@@ -39,7 +36,9 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
   return (
     <>
       <div className="blog">
-        <Logotype />
+        <div className="mainLogo">
+          <Link to={'/'}><Logotype /></Link>
+        </div>
         <Header
 
           handleFilterMovie={handleFilterMovie}
@@ -57,10 +56,10 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
               <li key={movie.imdbID}>
                 <div className="movie-poster">
                   <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(movie.imdbID)}>
-                  <TypographyText
-                                    content="Remove Favorite"
-                                    type='subline'
-                                />
+                    <TypographyText
+                      content="Remove Favorite"
+                      type='subline'
+                    />
                   </button>
                   <button className="movie-poster--btn">
                     <TypographyText content={movie.imdbRating} type="subline" />

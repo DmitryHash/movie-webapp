@@ -1,15 +1,22 @@
-.container {
-    max-width: 1130px;
+.container-theme {
     width: 100%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     row-gap: 72px;
-    padding: 0px 5px 0;
+    // padding: 72px 5px 0;
 }
 
-.dark{
+.container {
+    width: 100%;
+    max-width: 1130px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.dark {
     color: #000;
     background-color: #fff;
 
@@ -19,7 +26,15 @@
         }
     }
 
+    span {
+        color: #fff
+    }
+
     h3 {
+        color: #000;
+    }
+
+    .burgerMenu__nav-btn {
         color: #000;
     }
 }
@@ -38,7 +53,12 @@
         color: #fff
     }
 
-    h3, h2 {
+    .burgerMenu__nav-btn {
         color: #fff;
-    } 
+    }
+
+    h3,
+    h2 {
+        color: #fff;
+    }
 }
