@@ -8,7 +8,7 @@ interface IProtectedRoute {
 export const ProtectedRoute: FC<IProtectedRoute> = ({ access }) => {
 
     if (!access) {
-        return <Navigate replace to={'./posts'} />
+        return <Navigate replace to={'./'} />
     }
 
     return <Outlet />;

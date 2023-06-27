@@ -3,11 +3,10 @@ import { TypographyText } from '../../components/Typography/TypographyText';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import './SignUpPage.scss';
-import { createBackToHomePath } from '../../constants/createBackToHomePath';
 import { Link, useNavigate } from 'react-router-dom';
 import { postNewUser } from '../../api/postNewUser';
 import { useAppDispatch } from '../../store/hooks';
-import { setConfirmEmailAction } from '../../store/confirmEmail/actions';
+// import { setConfirmEmailAction } from '../../store/confirmEmail/actions';
 import { Header } from '../../components/Header/Header';
 import { Logotype } from '../../assets/icons';
 
@@ -91,7 +90,7 @@ export const SignUpPage: FC = () => {
     const handleSubmit = () => {
         if (validateForm()) {
             postNewUser({username, email, password}).then(() => {
-                dispatch(setConfirmEmailAction(email));
+                // dispatch(setConfirmEmailAction(email));
                 navigate('/confirm-registration');
             }).catch((error) => setErrors(prev => ({...prev, ...error.response.data})));
         }
@@ -103,7 +102,6 @@ export const SignUpPage: FC = () => {
                 <Link to={'/'}><Logotype/></Link>
             </div>
             <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
-            {/* <Breadcrumbs path={[createBackToHomePath]} /> */}
             <form className='sign-up__form'>
             <TypographyText content='Sign Up' type='H1'/>
                 <Input

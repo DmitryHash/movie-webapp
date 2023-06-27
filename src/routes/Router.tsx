@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { BlogPage } from "../pages/BlogPage/BlogPage";
+import { MainPage } from "../pages/MainPage/MainPage";
 import { SignInPage } from "../pages/SignInPage/SignInPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { useAppSelector } from "../store/hooks";
@@ -12,7 +12,7 @@ import { MovieListFilter } from '../../src/components/YearFilter/YearFilter';
 import { FilteredMoviesPage } from '../pages/FilteredMovieList/FilteredMoviePage';
 
 export const Router: FC = () => {
-    const { confirmEmail } = useAppSelector((state) => state.confirmEmail);
+    // const { confirmEmail } = useAppSelector((state) => state.confirmEmail);
 
     return (
         <Routes>
@@ -27,7 +27,7 @@ export const Router: FC = () => {
             <Route
                 path=""
                 element={
-                    <BlogPage
+                    <MainPage
                         handleFilterMovie={function (): void {
                             throw new Error("Function not implemented.");
                         }}
@@ -50,14 +50,14 @@ export const Router: FC = () => {
                     />
                 }
             />
-            <Route path="/filtered-movies" element={<FilteredMoviesPage />}/>
+            <Route path="/filtered-movies" element={<FilteredMoviesPage />} />
             <Route path="/" element={<MovieListFilter />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
 
-            <Route element={<ProtectedRoute access={!!confirmEmail} />}>
+            {/* <Route element={<ProtectedRoute access={!!confirmEmail} />}>
 
-            </Route>
+            </Route> */}
 
             <Route path="*" element={<>Такой страницы не существует</>} />
         </Routes>
