@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Input } from '../Input/Input';
+
 import { Button } from '../Button/Button';
 import { YearInput } from '../Input/YearInput';
 import './YearFilter.scss'

@@ -24,7 +24,7 @@ export const YearInput = ({
     return (
       <div>
         <label>{title}</label>
-        <input type="text" value={value} onChange={handleChange} placeholder={placeholder} className='input' />
+        <input type="text" value={value} onChange={handleChange} placeholder={placeholder} className={className} />
       </div>
     );
 };

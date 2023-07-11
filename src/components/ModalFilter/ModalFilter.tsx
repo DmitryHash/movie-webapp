@@ -12,8 +12,6 @@ interface IModalProps {
 
 export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [yearStart, setYearStart] = useState('');
-  // const [yearEnd, setYearEnd] = useState('');
 
   const openModal = () => {
     setIsOpen(true);
@@ -23,14 +21,6 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
     setIsOpen(false);
     onClose();
   };
-
-  // const handleChangeYearStart = (newValue: string) => {
-  //   setYearStart(newValue);
-  // };
-
-  // const handleChangeYearEnd = (newValue: string) => {
-  //   setYearEnd(newValue);
-  // };
 
   const modalStyles = isOpen ? 'modal-open' : '';
   const isDark = useAppSelector(isDarktheme);
@@ -43,7 +33,7 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
       <div className={`modal-overlay ${isDark ? 'dark' : 'light'} ${isOpen ? 'modal-open' : ''}`}>
         <div className={`modal-content ${modalStyles}`}>
           <div className='modal-content-header'>
-            <TypographyText content='Filters' type='H2' />
+            <TypographyText content='Filter' type='H2' />
             <button className='modal-content-header-close-btn' onClick={closeModal}>
               X
             </button>
