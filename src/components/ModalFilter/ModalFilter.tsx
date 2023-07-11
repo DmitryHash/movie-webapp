@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import './ModalFilter.scss';
 import { TypographyText } from '../Typography/TypographyText';
-import { Input } from '../Input/Input';
 import Filters from '../../assets/icons/filters.svg';
 import { MovieListFilter } from '../YearFilter/YearFilter';
 import { useAppSelector } from '../../store/hooks';
@@ -13,8 +12,8 @@ interface IModalProps {
 
 export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [yearStart, setYearStart] = useState('');
-  const [yearEnd, setYearEnd] = useState('');
+  // const [yearStart, setYearStart] = useState('');
+  // const [yearEnd, setYearEnd] = useState('');
 
   const openModal = () => {
     setIsOpen(true);
@@ -25,13 +24,13 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
     onClose();
   };
 
-  const handleChangeYearStart = (newValue: string) => {
-    setYearStart(newValue);
-  };
+  // const handleChangeYearStart = (newValue: string) => {
+  //   setYearStart(newValue);
+  // };
 
-  const handleChangeYearEnd = (newValue: string) => {
-    setYearEnd(newValue);
-  };
+  // const handleChangeYearEnd = (newValue: string) => {
+  //   setYearEnd(newValue);
+  // };
 
   const modalStyles = isOpen ? 'modal-open' : '';
   const isDark = useAppSelector(isDarktheme);
