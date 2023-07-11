@@ -55,3 +55,5 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
     </>
   );
 };
+
+export { MovieListFilter };

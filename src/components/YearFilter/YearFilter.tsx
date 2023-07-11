@@ -1,37 +1,15 @@
+import { useState, useEffect, ChangeEvent, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect, ChangeEvent, FC } from 'react';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
+import { YearInput } from '../Input/YearInput';
 import './YearFilter.scss'
 
 interface IMovie {
   Title: string;
   Year: string;
 }
-
-interface IYearInput {
-  title: string;
-  value: string;
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
-  className?: string;
-}
-
-export const YearInput: FC<IYearInput> = ({
-  title,
-  value,
-  handleChange,
-  placeholder,
-  className,
-}) => {
-  return (
-    <div>
-      <label>{title}</label>
-      <input type="text" value={value} onChange={handleChange} placeholder={placeholder} className={className}/>
-    </div>
-  );
-};
 
 export const MovieListFilter = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
@@ -67,15 +45,6 @@ export const MovieListFilter = () => {
       setFilteredMovies([]);
     }
   }, [yearStart, yearEnd, searchQuery]);
-
-  const renderMovieCard = (movie: IMovie) => {
-    return (
-      <div key={movie.Title} className="movie-card">
-        <h3>{movie.Title}</h3>
-        <p>{movie.Year}</p>
-      </div>
-    );
-  };
 
   const handleChangeYearStart = (event: ChangeEvent<HTMLInputElement>) => {
     setYearStart(event.target.value);
@@ -123,13 +92,6 @@ export const MovieListFilter = () => {
       <div className='apply-btn'>
         <Button onClick={handleApplyFilters} content='Apply filters' type='primary' />
       </div>
-      {/* <ul>
-        {filteredMovies.length > 0 ? (
-          filteredMovies.map((movie) => renderMovieCard(movie))
-        ) : (
-          <p>No movies found.</p>
-        )}
-      </ul> */}
     </div>
   );
 };
