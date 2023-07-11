@@ -13,11 +13,9 @@ export const BurgerMenu: FC = () => {
     const dispatch = useAppDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const isDark = useAppSelector(isDarktheme);
-    const isLogged = true;
 
     const options = [
         {  id: 1, name: 'Home', url: '/' },
-        // { id: 2, name: 'Trends', url: '/trends' },
         { id: 3, name: 'Favorites', url: '/favorites' },
         { id: 4, name: 'Settings', url: '/settings' },
     ]
@@ -31,11 +29,6 @@ export const BurgerMenu: FC = () => {
         setIsOpen(false);
     }
 
-
-    const signIn = () => {
-        navigate('/sign-in');
-        setIsOpen(false);
-    }
 
     return (
         <div className={`burgerMenu ${isDark ? 'dark' : 'light'}`}>

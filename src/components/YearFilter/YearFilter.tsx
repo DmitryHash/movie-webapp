@@ -1,38 +1,22 @@
+import { useState, useEffect, ChangeEvent, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect, ChangeEvent } from 'react';
-import { Input } from '../Input/Input';
 
-interface Movie {
+import { Button } from '../Button/Button';
+import { YearInput } from '../Input/YearInput';
+import './YearFilter.scss'
+
+interface IMovie {
   Title: string;
   Year: string;
 }
 
-export const YearInput = ({
-  title,
-  value,
-  handleChange,
-  placeholder,
-}: {
-  title: string;
-  value: string;
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
-}) => {
-  return (
-    <div>
-      <label>{title}</label>
-      <input type="text" value={value} onChange={handleChange} placeholder={placeholder} />
-    </div>
-  );
-};
-
 export const MovieListFilter = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<IMovie[]>([]);
   const [yearStart, setYearStart] = useState<string>('');
   const [yearEnd, setYearEnd] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+  const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([]);
   const navigate = useNavigate();
 
   const fetchMoviesByYearRange = async (start: string, end: string) => {
@@ -46,7 +30,7 @@ export const MovieListFilter = () => {
       });
       const allMovies = response.data.Search || [];
       const filteredMovies = allMovies.filter(
-        (movie: Movie) => movie.Year >= start && movie.Year <= end
+        (movie: IMovie) => movie.Year >= start && movie.Year <= end
       );
       setFilteredMovies(filteredMovies);
     } catch (error) {
@@ -61,15 +45,6 @@ export const MovieListFilter = () => {
       setFilteredMovies([]);
     }
   }, [yearStart, yearEnd, searchQuery]);
-
-  const renderMovieCard = (movie: Movie) => {
-    return (
-      <div key={movie.Title} className="movie-card">
-        <h3>{movie.Title}</h3>
-        <p>{movie.Year}</p>
-      </div>
-    );
-  };
 
   const handleChangeYearStart = (event: ChangeEvent<HTMLInputElement>) => {
     setYearStart(event.target.value);
@@ -90,18 +65,6 @@ export const MovieListFilter = () => {
 
   return (
     <div>
-      <YearInput
-        title="From"
-        value={yearStart}
-        handleChange={handleChangeYearStart}
-        placeholder="Start Year"
-      />
-      <YearInput
-        title="To"
-        value={yearEnd}
-        handleChange={handleChangeYearEnd}
-        placeholder="End Year"
-      />
       <div>
         <label>Movie Title</label>
         <input
@@ -109,16 +72,26 @@ export const MovieListFilter = () => {
           value={searchQuery}
           onChange={handleChangeSearchQuery}
           placeholder="Enter Movie Title"
+          className='movieTitle-input'
         />
       </div>
-      <button onClick={handleApplyFilters}>Apply Filters</button>
-      {/* <ul>
-        {filteredMovies.length > 0 ? (
-          filteredMovies.map((movie) => renderMovieCard(movie))
-        ) : (
-          <p>No movies found.</p>
-        )}
-      </ul> */}
+      <YearInput
+        title="From"
+        value={yearStart}
+        handleChange={handleChangeYearStart}
+        placeholder="Start Year"
+        className='year-input'
+      />
+      <YearInput
+        title="To"
+        value={yearEnd}
+        handleChange={handleChangeYearEnd}
+        placeholder="End Year"
+        className='year-input'
+      />
+      <div className='apply-btn'>
+        <Button onClick={handleApplyFilters} content='Apply filters' type='primary' />
+      </div>
     </div>
   );
 };

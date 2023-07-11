@@ -1,26 +1,24 @@
 import { FC, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import "./Trends";
-import { getPostsAction } from "../../store/posts/actions";
+import "./MainPage.scss";
+// import { getPostsAction } from "../../store/posts/actions";
 import { Header } from "../../components/Header/Header";
 import { MovieList } from "../../components/MovieList/MovieList";
 import { Logotype } from "../../assets/icons";
+import { Link } from "react-router-dom";
 
-export interface Trends {
+interface IMainPage {
   handleFilterMovie: () => void;
   handleMoveMain: () => void;
 }
 
-export const Trends: FC<Trends> = ({
-  handleFilterMovie,
-  handleMoveMain,
-}) => {
+export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) => {
   const dispatch = useAppDispatch();
-  const { posts, error, loading } = useAppSelector((state) => state.posts);
+  // const { posts, error, loading } = useAppSelector((state) => state.posts);
 
-  useEffect(() => {
-    dispatch(getPostsAction());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getPostsAction());
+  // }, [dispatch]);
 
   const [titleMovie, setTitleMovie] = useState("");
   const handleTitleFilm = (newValue: string) => {
@@ -29,8 +27,11 @@ export const Trends: FC<Trends> = ({
 
   return (
     <div className="blog">
-      <Logotype />
+      <div className="mainLogo">
+        <Link to={'/'}><Logotype/></Link>
+      </div>
       <Header
+      
         handleFilterMovie={handleFilterMovie}
         handleMoveMain={handleMoveMain}
         titleFilm={handleTitleFilm}
