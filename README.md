@@ -31,7 +31,7 @@ The above steps will set up the project and launch it in your default browser.
     <li>Material-UI (MUI) library</li>
     <li>Jest</li>
 </ul>
-<p align="left">
+<p align="left" display="flex" flex-direction="column">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=gitgithub,react,redux,ts,sass,materialui,jest" />
   </a>
