@@ -1,17 +1,21 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { MovieListFilter } from './components/ModalFilter/ModalFilter'
+import { Input } from './components/Input/Input';
 
 
-describe ('ModalFilter', () => {
+describe('Input change value', () => {
 
-    test('should update searchQuery state when movie title input changes', () => {
-        const { getByPlaceholderText } = render(<MovieListFilter />);
-        const movieTitleInput: HTMLInputElement | null = getByPlaceholderText('Enter Movie Title') as HTMLInputElement;
-    
-        fireEvent.change(movieTitleInput, { target: { value: 'Inception' } });
-    
-        expect(movieTitleInput.value).toBe('Inception');
-      });
-    
+
+  test('Function handleChange update value', () => {
+    const handleChange = jest.fn();
+    const { getByLabelText } = render(
+      <Input title="Name" value="" handleChange={handleChange} />
+    );
+    const input = getByLabelText('Name') as HTMLInputElement;
+
+    fireEvent.change(input, { target: { value: 'Bob' } });
+
+    expect(handleChange).toHaveBeenCalledWith('Bob');
+  });
+
 });
