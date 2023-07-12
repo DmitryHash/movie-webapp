@@ -13,11 +13,11 @@ To run the project locally, follow the steps below:
 1. Clone the repository to your local machine.
 2. Open your preferred code editor and navigate to the project directory.
 3. Open the terminal within the code editor.
-4. Run the command npm install to install all the required dependencies.
+4. Run the command <strong>npm install</strong> to install all the required dependencies.
 5. Wait for the installation process to complete.
 6. (Optional) Restart the code editor to avoid any potential errors.
 7. Open the terminal again (if you restarted the code editor).
-8. Run the command npm start to start the application.
+8. Run the command <strong>npm start</strong> to start the application.
 
 The above steps will set up the project and launch it in your default browser.
 
@@ -42,4 +42,4 @@ The above steps will set up the project and launch it in your default browser.
 
 With this project, I aimed to demonstrate my understanding of React concepts and showcase my first experience with the Material-UI library. Feel free to explore the code and provide any feedback or suggestions. Thank you for your interest!
 
-For any further information or inquiries, please contact me at mail <h3>podolnitsky@gmail.com</h3>.
+For any further information or inquiries, please contact me at mail <h3>podolnitsky@gmail.com</h3>

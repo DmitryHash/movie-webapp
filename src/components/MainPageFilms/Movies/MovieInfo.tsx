@@ -48,9 +48,9 @@ export const MovieInfo: FC<IMovieInfo> = () => {
 
   if (!movie) {
     return (
-      <div className="loader triangle">
-        <svg viewBox="0 0 86 80">
-          <polygon points="43 8 79 72 7 72"></polygon>
+      <div className="ui-loader loader-blk">
+        <svg viewBox="22 22 44 44" className="multiColor-loader">
+          <circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" className="loader-circle loader-circle-animation"></circle>
         </svg>
       </div>
     );
@@ -66,7 +66,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           <Logotype />
         </Link>
       </div>
-      <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}} />
+      <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
       <div className="movie-details">
         <div className="movie-poster">
           {movie.Poster !== "N/A" ? (

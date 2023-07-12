@@ -58,96 +58,86 @@
     }
   }
 }
-.loader {
-  --path: #2f3545;
-  --dot: #5628ee;
-  --duration: 3s;
-  width: 44px;
-  height: 44px;
-  position: fixed;
+
+.ui-loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
   top: 50%;
   left: 50%;
-
-  &:before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    position: absolute;
-    display: block;
-    background: var(--dot);
-    top: 37px;
-    left: 19px;
-    transform: translate(-18px, -18px);
-    animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
-      infinite;
-  }
-  svg {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-    rect,
-    polygon,
-    circle {
-      fill: none;
-      stroke: var(--path);
-      stroke-width: 10px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-    }
-    polygon {
-      stroke-dasharray: 145 (221 - 145) 145 (221 - 145);
-      stroke-dashoffset: 0;
-      animation: pathTriangle var(--duration)
-        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    }
-    rect {
-      stroke-dasharray: (256 / 4 * 3) (256 / 4) (256 / 4 * 3) (256 / 4);
-      stroke-dashoffset: 0;
-      animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    }
-    circle {
-      stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
-      stroke-dashoffset: 75;
-      animation: pathCircle var(--duration)
-        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    }
-  }
-  &.triangle {
-    width: 48px;
-    &:before {
-      left: 21px;
-      transform: translate(-10px, -18px);
-      animation: dotTriangle var(--duration)
-        cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    }
-  }
 }
 
-@keyframes pathTriangle {
-  33% {
-    stroke-dashoffset: 74;
+.loader-blk {
+  color: #3f51b5;
+  animation: rotate-outer08 1.4s linear infinite;
+}
+
+.multiColor-loader {
+  display: block;
+  animation: color-anim08 1.4s infinite;
+}
+
+.loader-circle {
+  stroke: currentColor;
+}
+
+.MuiCircularProgress-circleStatic {
+  transition: stroke-dashoffset 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.loader-circle-animation {
+  animation: rotate-inner08 1.4s ease-in-out
+    infinite;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0;
+}
+
+@keyframes rotate-outer08 {
+  0% {
+    transform-origin: 50% 50%;
   }
-  66% {
-    stroke-dashoffset: 147;
-  }
+
   100% {
-    stroke-dashoffset: 221;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes dotTriangle {
-  33% {
-    transform: translate(0, 0);
+@keyframes rotate-inner08 {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
   }
-  66% {
-    transform: translate(10px, -18px);
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
   }
+
   100% {
-    transform: translate(-10px, -18px);
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
   }
 }
+
+@keyframes color-anim08 {
+  0% {
+    color: #4285f4;
+  }
+
+  25% {
+    color: #ea4335;
+  }
+
+  50% {
+    color: #f9bb2d;
+  }
+
+  75% {
+    color: #34a853;
+  }
+}
+
 
 .loader {
   display: inline-block;
