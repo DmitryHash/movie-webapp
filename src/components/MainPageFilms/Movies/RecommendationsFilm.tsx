@@ -67,29 +67,14 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
 
 
 
-    // const truncateTitle = (title: string) => {
-    //     if (title.length > 30) {
-    //         let truncatedTitle = title.substring(0, 30);
-    //         const lastSpaceIndex = truncatedTitle.lastIndexOf(' ');
-    //         if (lastSpaceIndex !== -1) {
-    //             truncatedTitle = truncatedTitle.substring(0, lastSpaceIndex);
-    //         }
-    //         return truncatedTitle + '...';
-    //     }
-    //     return title;
-    // };
-    // Обрезает название фильма на заданное количество символов
-
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 4,
-            // partialVisibilityGutter: -10,
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
