@@ -29,11 +29,13 @@ The above steps will set up the project and launch it in your default browser.
     <li>Axios</li>
     <li>SCSS</li>
     <li>Material-UI (MUI) library</li>
+    <li>Jest</li>
 </ul>
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,wasm)](https://skillicons.dev)
 
 
 <h2>Conclusion</h2>
 
 With this project, I aimed to demonstrate my understanding of React concepts and showcase my first experience with the Material-UI library. Feel free to explore the code and provide any feedback or suggestions. Thank you for your interest!
 
-For any further information or inquiries, please contact me at [your contact information].
+For any further information or inquiries, please contact me at mail <h3>podolnitsky@gmail.com</h3>.
