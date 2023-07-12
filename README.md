@@ -27,13 +27,13 @@ The above steps will set up the project and launch it in your default browser.
     <li>Redux</li>
     <li>TypeScript</li>
     <li>Axios</li>
-    <li>SCSS</li>
+    <li>SASS</li>
     <li>Material-UI (MUI) library</li>
     <li>Jest</li>
 </ul>
-<p align="center">
+<p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,kubernetes,docker,c,vim" />
+    <img src="https://skillicons.dev/icons?i=gitgithub,react,redux,ts,sass,materialui,jest" />
   </a>
 </p>
 
