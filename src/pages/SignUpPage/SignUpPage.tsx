@@ -1,12 +1,11 @@
 import { FC, useState } from 'react';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import './SignUpPage.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { postNewUser } from '../../api/postNewUser';
 import { useAppDispatch } from '../../store/hooks';
-// import { setConfirmEmailAction } from '../../store/confirmEmail/actions';
 import { Header } from '../../components/Header/Header';
 import { Logotype } from '../../assets/icons';
 
@@ -89,7 +88,6 @@ export const SignUpPage: FC = () => {
     const handleSubmit = () => {
         if (validateForm()) {
             postNewUser({ username, email, password }).then(() => {
-                // dispatch(setConfirmEmailAction(email));
                 navigate('/confirm-registration');
             }).catch((error) => setErrors(prev => ({ ...prev, ...error.response.data })));
         }
@@ -102,7 +100,7 @@ export const SignUpPage: FC = () => {
             </div>
             <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
             <form className='sign-up__form'>
-                <TypographyText content='Sign Up' type='H1' />
+                <Typography content='Sign Up' type='H1' />
                 <Input
                     title='Name'
                     placeholder='Your name'

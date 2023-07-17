@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
 import { IconButton } from '../IconButton/IconButton';
 import { ControlledSwitches } from '../Switcher/Switcher';
-import { TypographyText } from '../Typography/TypographyText';
+import { Typography } from '../Typography/Typography';
 import './BurgerMenu.scss';
 
 
@@ -54,7 +54,7 @@ export const BurgerMenu: FC = () => {
                 </nav>
                 <div>
                     <div className="burgerMenu__theme-box">
-                        <TypographyText content='Night mode' type='subline' />
+                        <Typography content='Night mode' type='subline' />
                         <ControlledSwitches />
                     </div>
                 </div>

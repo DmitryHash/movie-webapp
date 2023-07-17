@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TypographyText } from "../Typography/TypographyText";
+import { Typography } from "../Typography/Typography";
 
 interface IRecommendations {
   recommendations: { Title: string; Year: string }[];
@@ -8,7 +8,7 @@ interface IRecommendations {
 export const Recommendations: FC<IRecommendations> = ({ recommendations }) => {
   return (
     <div>
-      <TypographyText content="Recommendation" type="H2" />
+      <Typography content="Recommendation" type="H2" />
       <ul>
         {recommendations.map(({ Title, Year }) => (
           <li>

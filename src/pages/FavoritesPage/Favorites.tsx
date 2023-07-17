@@ -4,7 +4,7 @@ import { RootState } from "../../store/store";
 import { removeMovie } from "../../store/favoritesSlice";
 import { Link } from "react-router-dom";
 import { IMovie } from "../MainPageFilms/Movies/RecommendationsFilm";
-import { TypographyText } from "../../components/Typography/TypographyText";
+import { Typography } from "../../components/Typography/Typography";
 import { Logotype } from "../../assets/icons";
 import { Header } from "../../components/Header/Header";
 import "./Favorites.scss"
@@ -39,7 +39,7 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           titleFilm={handleTitleFilm}
         />
       </div>
-      <TypographyText content="Favorites" type="H1" />
+      <Typography content="Favorites" type="H1" />
       {favorites.length > 0 ? (
         <div className="container">
           <ul className="container--ul">
@@ -47,19 +47,19 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
               <li>
                 <div className="movie-poster">
                   <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(imdbID)}>
-                    <TypographyText
+                    <Typography
                       content="Remove Favorite"
                       type='subline'
                     />
                   </button>
                   <button className="movie-poster--btn">
-                    <TypographyText content={imdbRating} type="subline" />
+                    <Typography content={imdbRating} type="subline" />
                   </button>
                   <img className="movie-poster--img" draggable="false" src={Poster} alt={Title} />
                   <Link to={`/movies/${imdbID}`} className="movie-link">
-                    <TypographyText content={Title} type="H2" />
-                    <TypographyText content={Year} type="H2" />
-                    <TypographyText content={Genre.split(", ").join(" • ")} type="subline" />
+                    <Typography content={Title} type="H2" />
+                    <Typography content={Year} type="H2" />
+                    <Typography content={Genre.split(", ").join(" • ")} type="subline" />
                   </Link>
                 </div>
               </li>
@@ -67,7 +67,7 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           </ul>
         </div>
       ) : (
-        <TypographyText content="No movie found" type="subline" />
+        <Typography content="No movie found" type="subline" />
       )}
     </>
   );

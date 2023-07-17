@@ -7,7 +7,7 @@ import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { API_KEY, FILM_URL } from '../../../api/urls';
 import "./RecommendationsFilm.scss";
 
-import { TypographyText } from '../../../components/Typography/TypographyText';
+import { Typography } from '../../../components/Typography/Typography';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -89,7 +89,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
     return (
         <>
             <div className="recommendations">
-                <TypographyText content='Recommendation' type='H1' />
+                <Typography content='Recommendation' type='H1' />
                 {movies.length > 1 ? (
                     <ul className='recommendations--ul'>
                     </ul>
@@ -116,7 +116,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                             <button className='movie-poster--favorites'
                                 onClick={() => handleRemoveFromFavorites(imdbID)}
                             >
-                                <TypographyText
+                                <Typography
                                     content="Remove Favorite"
                                     type='subline'
                                 />
@@ -125,7 +125,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                             <button className='movie-poster--favorites'
                                 onClick={() => handleAddToFavorites({ Genre, Poster, Title, Year, imdbID, imdbRating })}
                             >
-                                <TypographyText
+                                <Typography
                                     content="Add to Favorite"
                                     type='subline'
                                 />
@@ -133,7 +133,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                         )}
 
                         <button className='movie-poster--btn'>
-                            <TypographyText
+                            <Typography
                                 content={imdbRating}
                                 type='subline'
                             />
@@ -146,9 +146,9 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                             alt={Title}
                         />
                         <Link to={`/movies/${imdbID}`} className="movie-link">
-                            <TypographyText content={Title} type='H2' onClick={() => handleCardClick(Genre)} />
-                            <TypographyText content={Year} type='H3' />
-                            <TypographyText content={Genre.split(', ').join(' • ')} type='subline' />
+                            <Typography content={Title} type='H2' onClick={() => handleCardClick(Genre)} />
+                            <Typography content={Year} type='H3' />
+                            <Typography content={Genre.split(', ').join(' • ')} type='subline' />
                         </Link>
                     </div>
                 ))}

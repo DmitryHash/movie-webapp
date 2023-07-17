@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import './Footer.scss';
-import { TypographyText } from '../Typography/TypographyText';
+import { Typography } from '../Typography/Typography';
 
 export const Footer: FC = () => {
     return (
         <footer className='footer'>
             <div className='footer__text'>
-                <TypographyText content='© All Rights Reserved' type='subline' />
+                <Typography content='© All Rights Reserved' type='subline' />
             </div>
         </footer>
     )

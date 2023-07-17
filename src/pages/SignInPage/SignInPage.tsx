@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState, KeyboardEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { postLogin } from '../../api/postLogin';
@@ -94,7 +94,7 @@ export const SignInPage: FC = () => {
             </div>
             <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
             <form className='sign-in__form'>
-                <TypographyText content='Sign In' type='H1' />
+                <Typography content='Sign In' type='H1' />
                 <Input
                     title='Email'
                     placeholder='Your email'

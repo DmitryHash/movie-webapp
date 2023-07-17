@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
-import { TypographyText } from "../Typography/TypographyText";
+import { Typography } from "../Typography/Typography";
 
 interface ICard {
   image: string;
@@ -23,10 +23,10 @@ export const Card: FC<ICard> = ({
     <Link to={link}>
       <div className="card">
         <img src={image} alt={titleFilm} />
-        <TypographyText content={titleFilm} type="H2" />
+        <Typography content={titleFilm} type="H2" />
         <div className="card-info">
-        <TypographyText content={yearFilm} type="H3" />
-        <TypographyText content={genreFIlm} type="subline" />
+        <Typography content={yearFilm} type="H3" />
+        <Typography content={genreFIlm} type="subline" />
         </div>
       </div>
     </Link>

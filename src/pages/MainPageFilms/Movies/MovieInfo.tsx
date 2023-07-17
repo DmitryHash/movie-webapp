@@ -9,7 +9,7 @@ import { RecommendationsFilm } from "./RecommendationsFilm";
 import { API_KEY, FILM_URL } from "../../../api/urls";
 import { Header } from "../../../components/Header/Header";
 import "./MovieInfo.scss";
-import { TypographyText } from "../../../components/Typography/TypographyText";
+import { Typography } from "../../../components/Typography/Typography";
 
 interface IMovieInfo {
   match: {
@@ -106,15 +106,15 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           )}
         </div>
         <div className="movie-info">
-          <TypographyText content={genreString} type="subline" />
-          <TypographyText content={movie.Title} type="H1" />
+          <Typography content={genreString} type="subline" />
+          <Typography content={movie.Title} type="H1" />
           <p className="movie-rating">
             <span className="movie-rating--green">{movie.imdbRating}</span>
             <span>IMDb {movie.imdbRating}</span>
             <span>{movie.Runtime}</span>
           </p>
           <div className="movie-info--plot">
-            <TypographyText content={movie.Plot} type="subline" />
+            <Typography content={movie.Plot} type="subline" />
           </div>
           <div className="movie-info--genres">
             <ul>

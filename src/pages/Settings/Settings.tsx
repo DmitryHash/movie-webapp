@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import './Settings.scss';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { Header } from '../../components/Header/Header';
@@ -134,7 +134,7 @@ export const Settings: FC = () => {
                     <Link to={'/'}><Logotype /></Link>
                 </div>
                 <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
-                <TypographyText content='Profile' type='H1' />
+                <Typography content='Profile' type='H1' />
                 <form className='settings__form-profile'>
                     <Input
                         title='Name'
@@ -154,7 +154,7 @@ export const Settings: FC = () => {
 
                     />
                 </form>
-                <TypographyText content='Password' type='H2' />
+                <Typography content='Password' type='H2' />
                 <form className='settings__form-password'>
                     <Input
                         title='Password'

@@ -5,7 +5,7 @@ import { Card } from '../../components/Card/Card';
 import './FilteredMoviePage.scss';
 import { Logotype } from '../../assets/icons';
 import { Header } from '../../components/Header/Header';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { API_KEY, FILM_URL } from '../../api/urls';
 
 interface Movie {
@@ -67,13 +67,13 @@ export const FilteredMoviesPage = () => {
         <Link to={'/'}><Logotype /></Link>
       </div>
       <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
-      <TypographyText content='Filtered Movies' type='H1' />
+      <Typography content='Filtered Movies' type='H1' />
       {filteredMovies.length > 0 ? (
         <div className="movie-card-container">
           {filteredMovies.map((movie) => renderMovieCard(movie))}
         </div>
       ) : (
-        <TypographyText content='No movies found.' type='subline' />
+        <Typography content='No movies found.' type='subline' />
       )}
     </div>
   );
