@@ -45,7 +45,7 @@ export const BurgerMenu: FC = () => {
             <div className={`burgerMenu__content ${isOpen && 'open'}`}>
                 <nav className="burgerMenu__nav">
                     {options.map(({ id, name, url }) => (
-                        <li key={id} className='burgerMenu__nav-item'>
+                        <li className='burgerMenu__nav-item'>
                             <button className='burgerMenu__nav-btn' onClick={() => handleGoTo(url)}>
                                 {name}
                             </button>

@@ -36,7 +36,6 @@ export const Movies: FC<IMovies> = () => {
       <div className="movies-container">
         {renderedMovies.map(({ from, title, to }) => (
           <Movie
-            key={title}
             titleMovie={title}
             from={from}
             to={to}

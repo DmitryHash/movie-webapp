@@ -44,7 +44,7 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
         <div className="container">
           <ul className="container--ul">
             {favorites.map(({ Genre, Poster, Title, Year, imdbID, imdbRating }: IMovie) => (
-              <li key={imdbID}>
+              <li>
                 <div className="movie-poster">
                   <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(imdbID)}>
                     <TypographyText

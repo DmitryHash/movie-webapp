@@ -44,7 +44,6 @@ export const MovieList: FC<IMovieList> = ({ titleMovie }) => {
     <div className="card-list">
       {movies.map((item) => (
         <Card
-          key={item.imdbID}
           image={item["Poster"] !== "N/A" ? item["Poster"] : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png"}
           titleFilm={item["Title"]}
           yearFilm={item["Year"]}

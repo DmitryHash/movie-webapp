@@ -52,7 +52,6 @@ export const FilteredMoviesPage = () => {
   const renderMovieCard = ({ Genre, Poster, Title, Year, imdbID }: Movie) => {
     return (
       <Card
-        key={imdbID}
         image={Poster}
         titleFilm={Title}
         yearFilm={Year}

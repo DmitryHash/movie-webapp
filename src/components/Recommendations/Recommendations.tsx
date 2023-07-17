@@ -11,7 +11,7 @@ export const Recommendations: FC<IRecommendations> = ({ recommendations }) => {
       <TypographyText content="Recommendation" type="H2" />
       <ul>
         {recommendations.map(({ Title, Year }) => (
-          <li key={Title}>
+          <li>
             {Title} ({Year})
           </li>
         ))}

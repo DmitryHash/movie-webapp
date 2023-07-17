@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { TypographyText } from "../Typography/TypographyText";
 
 interface ICard {
-  key: string;
   image: string;
   titleFilm: string;
   yearFilm: string;
@@ -14,7 +13,6 @@ interface ICard {
 
 
 export const Card: FC<ICard> = ({
-  key,
   image,
   titleFilm,
   yearFilm,
@@ -23,7 +21,7 @@ export const Card: FC<ICard> = ({
 }) => {
   return (
     <Link to={link}>
-      <div className="card" key={key}>
+      <div className="card">
         <img src={image} alt={titleFilm} />
         <TypographyText content={titleFilm} type="H2" />
         <div className="card-info">
