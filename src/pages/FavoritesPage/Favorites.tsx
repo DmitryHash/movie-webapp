@@ -23,9 +23,9 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
     dispatch(removeMovie(imdbID));
   };
 
-  const handleAddToFavorites = (movie: IMovie) => {
-    dispatch(addMovie(movie));
-  };
+  // const handleAddToFavorites = (movie: IMovie) => {
+  //   dispatch(addMovie(movie));
+  // };
 
 
   function handleTitleFilm(newValue: string): void {

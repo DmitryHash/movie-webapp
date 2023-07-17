@@ -36,12 +36,12 @@ export const Movies: FC<IMovies> = () => {
   return (
     <div className="movies">
       <div className="movies-container">
-        {renderedMovies.map((movie) => (
+        {renderedMovies.map(({from, title, to}) => (
           <Movie
-            key={movie.title}
-            titleMovie={movie.title}
-            from={movie.from}
-            to={movie.to}
+            key={title}
+            titleMovie={title}
+            from={from}
+            to={to}
             
           />
         ))}

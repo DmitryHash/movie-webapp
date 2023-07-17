@@ -14,12 +14,8 @@ interface IMainPage {
 
 export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) => {
   const dispatch = useAppDispatch();
-  // const { posts, error, loading } = useAppSelector((state) => state.posts);
 
-  // useEffect(() => {
-  //   dispatch(getPostsAction());
-  // }, [dispatch]);
-
+  
   const [titleMovie, setTitleMovie] = useState("");
   const handleTitleFilm = (newValue: string) => {
     setTitleMovie(newValue);
