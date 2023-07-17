@@ -3,13 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
-import { Button } from "../../Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { Logotype } from "../../../assets/icons";
 import { RecommendationsFilm } from "./RecommendationsFilm";
 import { API_KEY, FILM_URL } from "../../../api/urls";
-import { Header } from "../../Header/Header";
+import { Header } from "../../../components/Header/Header";
 import "./MovieInfo.scss";
-import { TypographyText } from "../../Typography/TypographyText";
+import { TypographyText } from "../../../components/Typography/TypographyText";
 
 interface IMovieInfo {
   match: {

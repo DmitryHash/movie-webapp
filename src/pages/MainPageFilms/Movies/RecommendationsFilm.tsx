@@ -7,7 +7,7 @@ import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { API_KEY, FILM_URL } from '../../../api/urls';
 import "./RecommendationsFilm.scss";
 
-import { TypographyText } from '../../Typography/TypographyText';
+import { TypographyText } from '../../../components/Typography/TypographyText';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 

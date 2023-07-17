@@ -4,7 +4,7 @@ import { MainPage } from "../pages/MainPage/MainPage";
 import { SignInPage } from "../pages/SignInPage/SignInPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { Settings } from "../pages/Settings/Settings";
-import { MovieInfo } from "../components/MainPageFilms/Movies/MovieInfo";
+import { MovieInfo } from "../pages/MainPageFilms/Movies/MovieInfo";
 import { Favorites } from "../pages/FavoritesPage/Favorites";
 import { MovieListFilter } from '../components/MovieListFilter/MovieListFilter';
 import { FilteredMoviesPage } from '../pages/FilteredMovieList/FilteredMoviePage';
@@ -18,7 +18,6 @@ export const Router: FC = () => {
             }} handleMoveMain={function (): void {
                 throw new Error('Function not implemented.');
             }} />} />
-
             <Route path="/settings" element={<Settings />} />
             <Route
                 path=""
@@ -33,7 +32,6 @@ export const Router: FC = () => {
                     />
                 }
             />
-
             <Route
                 path="/movies/:id"
                 element={
@@ -51,7 +49,7 @@ export const Router: FC = () => {
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
 
-            <Route path="*" element={<>Такой страницы не существует</>} />
+            <Route path="*" element={<>Page is not found</>} />
         </Routes>
     );
 };

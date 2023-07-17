@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { removeMovie, addMovie } from "../../store/favoritesSlice";
+import { removeMovie } from "../../store/favoritesSlice";
 import { Link } from "react-router-dom";
-import { IMovie } from "../../components/MainPageFilms/Movies/RecommendationsFilm";
+import { IMovie } from "../MainPageFilms/Movies/RecommendationsFilm";
 import { TypographyText } from "../../components/Typography/TypographyText";
 import { Logotype } from "../../assets/icons";
 import { Header } from "../../components/Header/Header";

@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { API_KEY, FILM_URL } from "../../../api/urls";
-import { Card } from "../../Card/Card";
+import { Card } from "../../../components/Card/Card";
 import "./Movie.scss";
 
 interface IMovie {

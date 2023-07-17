@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent } from 'react';
 import './YearInput.scss';
 
 
@@ -11,7 +11,7 @@ export const YearInput = ({
   }: {
     title: string;
     value: string;
-    handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     placeholder: string;
     errorMessage?: string | string[];
     className: string;

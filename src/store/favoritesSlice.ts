@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMovie } from "../components/MainPageFilms/Movies/RecommendationsFilm";
+import { IMovie } from "../pages/MainPageFilms/Movies/RecommendationsFilm";
 
 
 interface IFavoritesState {

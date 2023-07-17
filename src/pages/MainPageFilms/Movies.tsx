@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 import { Movie } from './Movies/Movie';
 import './Movies.scss';
 import { ShowMore } from './ShowMore/ShowMore';
-import { Card } from '../Card/Card';
 
 interface IMovies { }
 

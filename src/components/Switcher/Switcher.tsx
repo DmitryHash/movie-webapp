@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import Switch from '@mui/material/Switch';
 import { useAppDispatch } from '../../store/hooks';
 import { toggleThemeAction } from '../../store/theme/actions';
 
 export const ControlledSwitches = () => {
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = useState(true);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
   };
   const dispatch = useAppDispatch();
 

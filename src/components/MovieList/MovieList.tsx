@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { FILM_URL } from "../../api/urls";
-import { Movies } from "../MainPageFilms/Movies";
+import { Movies } from "../../pages/MainPageFilms/Movies";
 import "./MovieList.scss";
 import { Button } from '../../components/Button/Button'
 
