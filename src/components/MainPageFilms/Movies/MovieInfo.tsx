@@ -1,16 +1,15 @@
 import { FC, useEffect, useState } from "react";
-import { FILM_URL } from "../../../api/urls";
 import { Link, useParams } from "react-router-dom";
-import { Header } from "../../Header/Header";
-import "./MovieInfo.scss";
-import { TypographyText } from "../../Typography/TypographyText";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { Button } from "../../Button/Button";
 import { Logotype } from "../../../assets/icons";
 import { RecommendationsFilm } from "./RecommendationsFilm";
-import { API_KEY } from "../../../api/urls";
+import { API_KEY, FILM_URL } from "../../../api/urls";
+import { Header } from "../../Header/Header";
+import "./MovieInfo.scss";
+import { TypographyText } from "../../Typography/TypographyText";
 
 interface IMovieInfo {
   match: {
@@ -18,9 +17,26 @@ interface IMovieInfo {
   };
 }
 
+interface IMovie {
+  imdbID: string;
+  Title: string;
+  Genre: string;
+  Poster: string;
+  imdbRating: string;
+  Runtime: string;
+  Plot: string;
+  Year: string;
+  Released: string;
+  BoxOffice: string;
+  Country: string;
+  Actors: string;
+  Director: string;
+  Writer: string;
+}
+
 export const MovieInfo: FC<IMovieInfo> = () => {
   const { id } = useParams<{ id: string }>();
-  const [movie, setMovie] = useState<any>();
+  const [movie, setMovie] = useState<IMovie | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -43,7 +59,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
     dispatch(removeMovie(imdbID));
   };
 
-  const handleAddToFavorites = (movie: any): void => {
+  const handleAddToFavorites = (movie: IMovie): void => {
     dispatch(addMovie(movie));
   };
 
@@ -58,7 +74,9 @@ export const MovieInfo: FC<IMovieInfo> = () => {
   }
 
   const genreArray = movie.Genre.split(",");
-  const genreString = genreArray.join(` • `);
+  const genreString = genreArray.join(" • ");
+
+  const isFavorite = favorites.some((favMovie) => favMovie.imdbID === movie.imdbID);
 
   return (
     <>
@@ -73,15 +91,11 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           {movie.Poster !== "N/A" ? (
             <>
               <img className="movie-poster--img" src={movie.Poster} alt={movie.Title} />
-              {favorites.some((favMovie: { imdbID: any; }) => favMovie.imdbID === movie.imdbID) ? (
-                <Button
-                  type={"primary"}
-                  content={"Remove from Favorites"}
-                  onClick={() => handleRemoveFromFavorites(movie.imdbID)}
-                />
-              ) : (
-                <Button type={"primary"} content={"Add to Favorites"} onClick={() => handleAddToFavorites(movie)} />
-              )}
+              <Button
+                type="primary"
+                content={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+                onClick={() => (isFavorite ? handleRemoveFromFavorites(movie.imdbID) : handleAddToFavorites(movie))}
+              />
             </>
           ) : (
             <img
@@ -99,7 +113,9 @@ export const MovieInfo: FC<IMovieInfo> = () => {
             <span>IMDb {movie.imdbRating}</span>
             <span>{movie.Runtime}</span>
           </p>
-          <p className="movie-info--plot">{movie.Plot}</p>
+          <div className="movie-info--plot">
+            <TypographyText content={movie.Plot} type="subline" />
+          </div>
           <div className="movie-info--genres">
             <ul>
               <li>
@@ -140,7 +156,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           </div>
         </div>
       </div>
-      <RecommendationsFilm genre={movie.Title} /> {/*genre={genreArray[0]}*/}
+      <RecommendationsFilm genre={movie.Title} />  {/* genre={genreArray[0]} */}
     </>
   );
 };
