@@ -4,6 +4,7 @@ import './TypographyText.scss';
 interface ITypographyText {
     content: string;
     type: 'H1' | 'H2' | 'H3' | 'subline' | 'textPrimary' | 'textSecondary';
+    onClick?: () => void;
 }
 
 export const TypographyText: FC<ITypographyText> = ({ content, type }) => {

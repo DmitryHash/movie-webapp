@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Button } from '../Button/Button';
 import { YearInput } from '../Input/YearInput';
 import './MovieListFilter.scss'
-import { FILM_URL } from '../../api/urls';
+import { API_KEY, FILM_URL } from '../../api/urls';
 
 interface IMovie {
   Title: string;
@@ -24,14 +24,14 @@ export const MovieListFilter = () => {
     try {
       const response = await axios.get(FILM_URL, {
         params: {
-          apikey: '797d76c8',
+          apikey: `${API_KEY}`,
           s: searchQuery,
           y: `${start}-${end}`,
         },
       });
       const allMovies = response.data.Search || [];
       const filteredMovies = allMovies.filter(
-        (movie: IMovie) => movie.Year >= start && movie.Year <= end
+        ({Title, Year}: IMovie) => Year >= start && Year <= end
       );
       setFilteredMovies(filteredMovies);
     } catch (error) {

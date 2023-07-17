@@ -1,11 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import "./MainPage.scss";
-// import { getPostsAction } from "../../store/posts/actions";
 import { Header } from "../../components/Header/Header";
 import { MovieList } from "../../components/MovieList/MovieList";
 import { Logotype } from "../../assets/icons";
 import { Link } from "react-router-dom";
+import "./MainPage.scss";
 
 interface IMainPage {
   handleFilterMovie: () => void;

@@ -23,10 +23,6 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
     dispatch(removeMovie(imdbID));
   };
 
-  // const handleAddToFavorites = (movie: IMovie) => {
-  //   dispatch(addMovie(movie));
-  // };
-
 
   function handleTitleFilm(newValue: string): void {
     throw new Error("Function not implemented.");
