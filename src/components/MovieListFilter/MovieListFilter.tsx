@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import { Button } from '../Button/Button';
 import { YearInput } from '../Input/YearInput';
-import './YearFilter.scss'
+import './MovieListFilter.scss'
+import { FILM_URL } from '../../api/urls';
 
 interface IMovie {
   Title: string;
@@ -21,7 +22,7 @@ export const MovieListFilter = () => {
 
   const fetchMoviesByYearRange = async (start: string, end: string) => {
     try {
-      const response = await axios.get('http://www.omdbapi.com/', {
+      const response = await axios.get(FILM_URL, {
         params: {
           apikey: '797d76c8',
           s: searchQuery,

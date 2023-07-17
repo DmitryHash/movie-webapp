@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import './ModalFilter.scss';
 import { TypographyText } from '../Typography/TypographyText';
 import Filters from '../../assets/icons/filters.svg';
-import { MovieListFilter } from '../YearFilter/YearFilter';
+import { MovieListFilter } from '../MovieListFilter/MovieListFilter';
 import { useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
 

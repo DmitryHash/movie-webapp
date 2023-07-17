@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
+import { API_KEY } from '../../../api/urls';
 import "./RecommendationsFilm.scss";
 
 import { TypographyText } from '../../Typography/TypographyText';
@@ -42,12 +43,12 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await fetch(`https://www.omdbapi.com/?s=${genre}&apikey=cbd67aa8`);
+                const response = await fetch(`https://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`);
                 const data = await response.json();
 
                 if (data.Search) {
                     const movieIds = data.Search.map((movie: any) => movie.imdbID);
-                    const requests = movieIds.map((id: string) => fetch(`https://www.omdbapi.com/?i=${id}&apikey=cbd67aa8`));
+                    const requests = movieIds.map((id: string) => fetch(`https://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`));
                     const responses = await Promise.all(requests);
                     const moviesData = await Promise.all(responses.map((response) => response.json()));
 

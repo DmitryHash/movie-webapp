@@ -8,7 +8,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Settings } from "../pages/Settings/Settings";
 import { MovieInfo } from "../components/MainPageFilms/Movies/MovieInfo";
 import { Favorites } from "../pages/FavoritesPage/Favorites";
-import { MovieListFilter } from '../../src/components/YearFilter/YearFilter';
+import { MovieListFilter } from '../components/MovieListFilter/MovieListFilter';
 import { FilteredMoviesPage } from '../pages/FilteredMovieList/FilteredMoviePage';
 
 export const Router: FC = () => {

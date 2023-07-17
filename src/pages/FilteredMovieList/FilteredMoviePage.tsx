@@ -6,6 +6,7 @@ import './FilteredMoviePage.scss';
 import { Logotype } from '../../assets/icons';
 import { Header } from '../../components/Header/Header';
 import { TypographyText } from '../../components/Typography/TypographyText';
+import { FILM_URL } from '../../api/urls';
 
 interface Movie {
   Genre: string;
@@ -26,7 +27,7 @@ export const FilteredMoviesPage = () => {
   useEffect(() => {
     const fetchFilteredMovies = async () => {
       try {
-        const response = await axios.get('http://www.omdbapi.com/', {
+        const response = await axios.get(FILM_URL, {
           params: {
             apikey: '797d76c8',
             s: searchQuery,

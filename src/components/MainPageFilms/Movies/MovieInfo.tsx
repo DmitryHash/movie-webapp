@@ -10,6 +10,7 @@ import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { Button } from "../../Button/Button";
 import { Logotype } from "../../../assets/icons";
 import { RecommendationsFilm } from "./RecommendationsFilm";
+import { API_KEY } from "../../../api/urls";
 
 interface IMovieInfo {
   match: {

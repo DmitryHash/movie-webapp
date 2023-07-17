@@ -7,7 +7,6 @@ import { IMovie } from "../../components/MainPageFilms/Movies/RecommendationsFil
 import { TypographyText } from "../../components/Typography/TypographyText";
 import { Logotype } from "../../assets/icons";
 import { Header } from "../../components/Header/Header";
-import { MovieListFilter } from "../../components/YearFilter/YearFilter";
 import "./Favorites.scss"
 
 
@@ -48,27 +47,27 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
 
 
       </div>
-      <h1>Favorites</h1>
+      <TypographyText content="Favorites" type="H1"/>
       {favorites.length > 0 ? (
         <div className="container">
           <ul className="container--ul">
-            {favorites.map((movie: IMovie) => (
-              <li key={movie.imdbID}>
+            {favorites.map(({Genre, Poster, Title, Year, imdbID, imdbRating}: IMovie) => (
+              <li key={imdbID}>
                 <div className="movie-poster">
-                  <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(movie.imdbID)}>
+                  <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(imdbID)}>
                     <TypographyText
                       content="Remove Favorite"
                       type='subline'
                     />
                   </button>
                   <button className="movie-poster--btn">
-                    <TypographyText content={movie.imdbRating} type="subline" />
+                    <TypographyText content={imdbRating} type="subline" />
                   </button>
-                  <img className="movie-poster--img" draggable="false" src={movie.Poster} alt={movie.Title} />
-                  <Link to={`/movies/${movie.imdbID}`} className="movie-link">
-                    <h3>{movie.Title} </h3>
-                    <h2>{movie.Year}</h2>
-                    <p>{movie.Genre.split(", ").join(" • ")}</p>
+                  <img className="movie-poster--img" draggable="false" src={Poster} alt={Title} />
+                  <Link to={`/movies/${imdbID}`} className="movie-link">
+                    <TypographyText content={Title} type="H2" />
+                    <TypographyText content={Year} type="H2" />
+                    <TypographyText content={Genre.split(", ").join(" • ")} type="subline" />
                   </Link>
                 </div>
 
@@ -77,7 +76,7 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           </ul>
         </div>
       ) : (
-        <p>No favorite movies</p>
+        <TypographyText content="No movie found" type="subline"/>
       )}
     </>
   );
