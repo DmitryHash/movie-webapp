@@ -9,11 +9,9 @@ interface IPageTemplate {
 }
 
 export const PageTemplate: FC<IPageTemplate> = ({children}) => (
-    <>
         <Container> 
                 {children}
             <Footer />
         </Container>
-    </>
 )
 

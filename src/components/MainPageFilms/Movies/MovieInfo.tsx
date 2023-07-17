@@ -51,13 +51,13 @@ export const MovieInfo: FC<IMovieInfo> = () => {
     return (
       <div className="ui-loader loader-blk">
         <svg viewBox="22 22 44 44" className="multiColor-loader">
-          <circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" className="loader-circle loader-circle-animation"></circle>
+          <circle cx="44" cy="44" r="20.2" fill="none" strokeWidth="3.6" className="loader-circle loader-circle-animation"></circle>
         </svg>
       </div>
     );
   }
 
-  const genreArray = movie.Genre.split(","); // Преобразование строки в массив
+  const genreArray = movie.Genre.split(",");
   const genreString = genreArray.join(` • `);
 
   return (
@@ -140,7 +140,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           </div>
         </div>
       </div>
-      <RecommendationsFilm genre={genreArray[0]} />
+      <RecommendationsFilm genre={movie.Title} /> {/*genre={genreArray[0]}*/}
     </>
   );
 };

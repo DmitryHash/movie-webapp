@@ -3,6 +3,7 @@ import { Card } from "../Card/Card";
 import { FILM_URL } from "../../api/urls";
 import { Movies } from "../MainPageFilms/Movies";
 import "./MovieList.scss";
+import { Button } from '../../components/Button/Button'
 
 interface IMovieList {
   titleMovie: string;
@@ -53,9 +54,7 @@ export const MovieList: FC<IMovieList> = ({ titleMovie }) => {
       ))}
       {!movies.length && <Movies />}
       {totalResults > movies.length && (
-        <button className="load-more-button" onClick={handleLoadMore}>
-          Load More
-        </button>
+        <Button content="Load More" onClick={handleLoadMore} type="primary"/>
       )}
     </div>
   );
