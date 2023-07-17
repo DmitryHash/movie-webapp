@@ -42,7 +42,6 @@ export const Movies: FC<IMovies> = () => {
             titleMovie={title}
             from={from}
             to={to}
-            
           />
         ))}
       </div>
@@ -55,8 +54,6 @@ export const Movies: FC<IMovies> = () => {
           />
         )}
       </div>
-  
-      
     </div>
   );
 }

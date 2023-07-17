@@ -106,7 +106,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                 responsive={responsive}
                 renderButtonGroupOutside={true}
                 arrows={true}
-                // autoPlay={true}
+                autoPlay={true}
                 transitionDuration={100}
                 infinite={false}
             >

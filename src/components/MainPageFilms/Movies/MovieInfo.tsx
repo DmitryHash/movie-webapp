@@ -25,7 +25,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const URL = `${FILM_URL}?i=${id}&apikey=797d76c8`;
+        const URL = `${FILM_URL}?i=${id}&apikey=${API_KEY}`;
         const response = await fetch(URL);
         const data = await response.json();
         setMovie(data);

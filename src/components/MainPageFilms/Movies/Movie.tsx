@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { FILM_URL } from "../../../api/urls";
+import { API_KEY, FILM_URL } from "../../../api/urls";
 import { Card } from "../../Card/Card";
 import "./Movie.scss";
 
@@ -16,7 +16,7 @@ export const Movie: FC<IMovie> = ({ titleMovie, from, to }) => {
     const fetchMovie = async () => {
       try {
         const response = await fetch(
-          `${FILM_URL}?s=${titleMovie}&apikey=797d76c8`
+          `${FILM_URL}?s=${titleMovie}&apikey=${API_KEY}`
         );
         const data = await response.json();
         setMovies(data.Search || []);
