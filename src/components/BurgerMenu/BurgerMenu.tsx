@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
 import { IconButton } from '../IconButton/IconButton';
 import { ControlledSwitches } from '../Switcher/Switcher';
-import './BurgerMenu.scss';
 import { TypographyText } from '../Typography/TypographyText';
+import './BurgerMenu.scss';
 
 
 export const BurgerMenu: FC = () => {

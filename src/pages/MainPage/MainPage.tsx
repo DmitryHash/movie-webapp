@@ -14,8 +14,8 @@ interface IMainPage {
 export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) => {
   const dispatch = useAppDispatch();
 
-  
   const [titleMovie, setTitleMovie] = useState("");
+  
   const handleTitleFilm = (newValue: string) => {
     setTitleMovie(newValue);
   };
@@ -23,10 +23,9 @@ export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) =
   return (
     <div className="blog">
       <div className="mainLogo">
-        <Link to={'/'}><Logotype/></Link>
+        <Link to={'/'}><Logotype /></Link>
       </div>
       <Header
-      
         handleFilterMovie={handleFilterMovie}
         handleMoveMain={handleMoveMain}
         titleFilm={handleTitleFilm}

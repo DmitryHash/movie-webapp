@@ -10,7 +10,7 @@ export const Recommendations: FC<IRecommendations> = ({ recommendations }) => {
     <div>
       <TypographyText content="Recommendation" type="H2" />
       <ul>
-        {recommendations.map(({Title, Year}) => (
+        {recommendations.map(({ Title, Year }) => (
           <li key={Title}>
             {Title} ({Year})
           </li>

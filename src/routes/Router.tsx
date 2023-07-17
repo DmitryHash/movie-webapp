@@ -51,8 +51,7 @@ export const Router: FC = () => {
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
 
-
-            <Route path="*" element={<>Page is not found</>} />
+            <Route path="*" element={<>Такой страницы не существует</>} />
         </Routes>
     );
 };

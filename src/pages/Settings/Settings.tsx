@@ -12,7 +12,7 @@ interface IError {
     username: string | string[];
     email: string | string[];
     password: string | string[];
-    newPassword: string | string [];
+    newPassword: string | string[];
     confirmPassword: string | string[];
 }
 
@@ -31,7 +31,6 @@ export const Settings: FC = () => {
         confirmPassword: '',
     });
 
-
     const inputUserNameRef = useRef<HTMLInputElement>(null);
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputPasswordRef = useRef<HTMLInputElement>(null);
@@ -44,36 +43,34 @@ export const Settings: FC = () => {
         }
     }, []);
 
-
     const handleChangeName = (newValue: string) => {
         setUserName(newValue);
-        setErrors(errors => ({...errors, username: '', detail: ''}));
+        setErrors(errors => ({ ...errors, username: '', detail: '' }));
     }
 
     const handleChangeEmail = (newValue: string) => {
         setEmail(newValue);
-        setErrors(errors => ({...errors, email: '', detail: ''}));
+        setErrors(errors => ({ ...errors, email: '', detail: '' }));
 
     }
 
     const handleChangePassword = (newValue: string) => {
         setPassword(newValue);
-        setErrors(errors => ({...errors, password: '', detail: ''}));
+        setErrors(errors => ({ ...errors, password: '', detail: '' }));
 
     }
 
     const handleChangeNewPassword = (newValue: string) => {
         setNewPassword(newValue);
-        setErrors(errors => ({...errors, newPassword: '', detail: ''}));
+        setErrors(errors => ({ ...errors, newPassword: '', detail: '' }));
 
     }
 
     const handleChangeConfirmPassword = (newValue: string) => {
         setConfirmPassowrd(newValue);
-        setErrors(errors => ({...errors, confirmPassword: '', detail: ''}));
+        setErrors(errors => ({ ...errors, confirmPassword: '', detail: '' }));
 
     }
-
 
     const validateForm = () => {
         const newErrors: IError = {
@@ -122,7 +119,7 @@ export const Settings: FC = () => {
         validateForm();
     }
 
-    const handleCleareForm =() => {
+    const handleCleareForm = () => {
         setUserName('');
         setEmail('');
         setPassword('');

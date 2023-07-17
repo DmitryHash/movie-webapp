@@ -31,14 +31,14 @@ export const Movie: FC<IMovie> = ({ titleMovie, from, to }) => {
 
   return (
     <div className="movie-card">
-      {moviesToShow.map(({imdbID, Poster, Title, Year, Genre}) => (
+      {moviesToShow.map(({ imdbID, Poster, Title, Year, Genre }) => (
         <Card
           key={imdbID}
           image={Poster}
           titleFilm={Title}
           yearFilm={Year}
           genreFIlm={Genre}
-          link={`movies/${imdbID}`} 
+          link={`movies/${imdbID}`}
         />
       ))}
     </div>

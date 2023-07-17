@@ -45,11 +45,11 @@ export const FilteredMoviesPage = () => {
         console.error(error);
       }
     };
-  
+
     fetchFilteredMovies();
   }, [searchQuery, yearStart, yearEnd]);
 
-  const renderMovieCard = ({Genre, Poster, Title, Year, imdbID}: Movie) => {
+  const renderMovieCard = ({ Genre, Poster, Title, Year, imdbID }: Movie) => {
     return (
       <Card
         key={imdbID}
@@ -57,7 +57,7 @@ export const FilteredMoviesPage = () => {
         titleFilm={Title}
         yearFilm={Year}
         genreFIlm={Genre}
-        link={`/movies/${imdbID}`} 
+        link={`/movies/${imdbID}`}
       />
     );
   };
@@ -65,16 +65,16 @@ export const FilteredMoviesPage = () => {
   return (
     <div>
       <div className="mainLogo">
-        <Link to={'/'}><Logotype/></Link>
+        <Link to={'/'}><Logotype /></Link>
       </div>
-      <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
-      <TypographyText content='Filtered Movies' type='H1'/>
+      <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+      <TypographyText content='Filtered Movies' type='H1' />
       {filteredMovies.length > 0 ? (
         <div className="movie-card-container">
           {filteredMovies.map((movie) => renderMovieCard(movie))}
         </div>
       ) : (
-        <TypographyText content='No movies found.' type='subline'/>
+        <TypographyText content='No movies found.' type='subline' />
       )}
     </div>
   );

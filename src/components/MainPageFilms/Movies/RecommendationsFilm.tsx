@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { API_KEY, FILM_URL } from '../../../api/urls';
+import "./RecommendationsFilm.scss";
 
 import { TypographyText } from '../../Typography/TypographyText';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import "./RecommendationsFilm.scss";
 
 
 interface IRecommendationsFilm {
@@ -41,7 +41,6 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
         dispatch(removeMovie(imdbID));
     };
 
-
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -68,8 +67,6 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
         navigate(`/movies/${id}`);
     };
 
-
-
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -92,7 +89,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
     return (
         <>
             <div className="recommendations">
-                <TypographyText content='Recommendation' type='H1'/>
+                <TypographyText content='Recommendation' type='H1' />
                 {movies.length > 1 ? (
                     <ul className='recommendations--ul'>
                     </ul>
@@ -112,7 +109,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                 transitionDuration={100}
                 infinite={false}
             >
-                {movies.map(({Genre, Poster, Title, Year, imdbID, imdbRating}) => (
+                {movies.map(({ Genre, Poster, Title, Year, imdbID, imdbRating }) => (
 
                     <div className="movie-poster">
                         {favorites.some((favMovie) => favMovie.imdbID === imdbID) ? (
@@ -126,7 +123,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                             </button>
                         ) : (
                             <button className='movie-poster--favorites'
-                                onClick={() => handleAddToFavorites({Genre, Poster, Title, Year, imdbID, imdbRating})}
+                                onClick={() => handleAddToFavorites({ Genre, Poster, Title, Year, imdbID, imdbRating })}
                             >
                                 <TypographyText
                                     content="Add to Favorite"
@@ -149,9 +146,9 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                             alt={Title}
                         />
                         <Link to={`/movies/${imdbID}`} className="movie-link">
-                            <TypographyText content={Title} type='H2' onClick={() => handleCardClick(Genre)}/>
+                            <TypographyText content={Title} type='H2' onClick={() => handleCardClick(Genre)} />
                             <TypographyText content={Year} type='H3' />
-                            <TypographyText content={Genre.split(', ').join(' • ')} type='subline'/>
+                            <TypographyText content={Genre.split(', ').join(' • ')} type='subline' />
                         </Link>
                     </div>
                 ))}

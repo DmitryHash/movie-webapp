@@ -31,7 +31,7 @@ export const MovieListFilter = () => {
       });
       const allMovies = response.data.Search || [];
       const filteredMovies = allMovies.filter(
-        ({Title, Year}: IMovie) => Year >= start && Year <= end
+        ({ Title, Year }: IMovie) => Year >= start && Year <= end
       );
       setFilteredMovies(filteredMovies);
     } catch (error) {

@@ -23,7 +23,6 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
     dispatch(removeMovie(imdbID));
   };
 
-
   function handleTitleFilm(newValue: string): void {
     throw new Error("Function not implemented.");
   }
@@ -35,19 +34,16 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           <Link to={'/'}><Logotype /></Link>
         </div>
         <Header
-
           handleFilterMovie={handleFilterMovie}
           handleMoveMain={handleMoveMain}
           titleFilm={handleTitleFilm}
         />
-
-
       </div>
-      <TypographyText content="Favorites" type="H1"/>
+      <TypographyText content="Favorites" type="H1" />
       {favorites.length > 0 ? (
         <div className="container">
           <ul className="container--ul">
-            {favorites.map(({Genre, Poster, Title, Year, imdbID, imdbRating}: IMovie) => (
+            {favorites.map(({ Genre, Poster, Title, Year, imdbID, imdbRating }: IMovie) => (
               <li key={imdbID}>
                 <div className="movie-poster">
                   <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(imdbID)}>
@@ -66,13 +62,12 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
                     <TypographyText content={Genre.split(", ").join(" • ")} type="subline" />
                   </Link>
                 </div>
-
               </li>
             ))}
           </ul>
         </div>
       ) : (
-        <TypographyText content="No movie found" type="subline"/>
+        <TypographyText content="No movie found" type="subline" />
       )}
     </>
   );

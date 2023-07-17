@@ -36,12 +36,12 @@ export const SignInPage: FC = () => {
 
     const handleChangeEmail = (newValue: string) => {
         setEmail(newValue);
-        setErrors(errors => ({...errors, email: '', detail: ''}));
+        setErrors(errors => ({ ...errors, email: '', detail: '' }));
     }
 
     const handleChangePassword = (newValue: string) => {
         setPassword(newValue);
-        setErrors(errors => ({...errors, password: '', detail: ''}));
+        setErrors(errors => ({ ...errors, password: '', detail: '' }));
     }
 
     const validateForm = () => {
@@ -58,10 +58,10 @@ export const SignInPage: FC = () => {
         }
         if (!password) {
             newErrors.password = 'Password is required';
-        }  else if (password.length < 6) {
+        } else if (password.length < 6) {
             newErrors.password = 'Password must be at least 6 characters long';
-          }
-        
+        }
+
         let isValid = Object.values(newErrors).every(error => error === '');
         if (isValid) {
             return true;
@@ -77,7 +77,7 @@ export const SignInPage: FC = () => {
                 localStorage.setItem('access_token', data.access);
                 localStorage.setItem('refresh_token', data.refresh);
                 navigate('/posts');
-            }).catch((error) => setErrors(prev => ({...prev, ...error.response.data})));
+            }).catch((error) => setErrors(prev => ({ ...prev, ...error.response.data })));
         }
     }
 
@@ -90,11 +90,11 @@ export const SignInPage: FC = () => {
     return (
         <div className='sign-in'>
             <div className="mainLogo">
-                <Link to={'/'}><Logotype/></Link>
+                <Link to={'/'}><Logotype /></Link>
             </div>
-            <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
+            <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
             <form className='sign-in__form'>
-            <TypographyText content='Sign In' type='H1'/>
+                <TypographyText content='Sign In' type='H1' />
                 <Input
                     title='Email'
                     placeholder='Your email'
@@ -118,9 +118,9 @@ export const SignInPage: FC = () => {
                 <Button content='Sign In' onClick={handleSubmit} type='primary' isDisabled={!Object.values(errors).every(error => error === '')} />
                 <p className='sign-in__form-description'>
                     Don’t have an account? {' '}
-                <Link to='/sign-up' className='sign-in__form-link'>
-                    Sign Up
-                </Link>
+                    <Link to='/sign-up' className='sign-in__form-link'>
+                        Sign Up
+                    </Link>
                 </p>
             </form>
         </div>

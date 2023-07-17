@@ -1,15 +1,12 @@
 import { ChangeEvent, FC } from 'react';
 import './YearInput.scss';
 
-interface IYearInput {
-}
 
 export const YearInput = ({
     title,
     value,
     handleChange,
     placeholder,
-    errorMessage,
     className,
   }: {
     title: string;
@@ -19,8 +16,6 @@ export const YearInput = ({
     errorMessage?: string | string[];
     className: string;
   }) => {
-
-    // const generatErrorMessage = (message: string | string[]) => typeof message === 'string' ? message : message.join(' ');
     return (
       <div>
         <label>{title}</label>
