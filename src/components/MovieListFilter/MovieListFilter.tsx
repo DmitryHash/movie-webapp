@@ -63,6 +63,12 @@ export const MovieListFilter = () => {
     navigate(`/filtered-movies?searchQuery=${searchQuery}&yearStart=${yearStart}&yearEnd=${yearEnd}`);
   };
 
+  const handleClearFilters = () => {
+    setYearStart('');
+    setYearEnd('');
+    setSearchQuery('');
+  }
+
   return (
     <div>
       <div>
@@ -89,8 +95,13 @@ export const MovieListFilter = () => {
         placeholder="End Year"
         className='year-input'
       />
-      <div className='apply-btn'>
-        <Button onClick={handleApplyFilters} content='Apply filters' type='primary' />
+      <div className='filtersBtn'>
+        <div className='apply-btn'>
+          <Button onClick={handleApplyFilters} content='Apply filters' type='primary' />
+        </div>
+        <div className='clear-btn'>
+          <Button onClick={handleClearFilters} content='Clear' type='secondary' />
+        </div>
       </div>
     </div>
   );
