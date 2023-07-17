@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { CancelIcon, BurgerMenuIcon } from '../../assets/icons';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
 import { IconButton } from '../IconButton/IconButton';
 import { ControlledSwitches } from '../Switcher/Switcher';
@@ -11,7 +11,6 @@ import './BurgerMenu.scss';
 
 export const BurgerMenu: FC = () => {
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const isDark = useAppSelector(isDarktheme);
 
@@ -29,7 +28,6 @@ export const BurgerMenu: FC = () => {
         navigate(url);
         setIsOpen(false);
     }
-
 
     return (
         <div className={`burgerMenu ${isDark ? 'dark' : 'light'}`}>

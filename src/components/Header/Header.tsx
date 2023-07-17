@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { UserInfo } from '../UserInfo/UserInfo';
 import { IconButton } from '../IconButton/IconButton';
-import { CancelIcon, UserIcon, Logotype } from '../../assets/icons';
+import { UserIcon } from '../../assets/icons';
 import { useNavigate } from 'react-router';
 import { ModalFilter } from '../ModalFilter/ModalFilter';
 import { useAppSelector } from '../../store/hooks';
@@ -11,8 +11,6 @@ import './Header.scss';
 
 
 interface IHeader {
-  handleMoveMain: () => void;
-  handleFilterMovie: () => void;
   titleFilm: (newValue: string) => void;
   isSearchDisabled?: boolean;
 }

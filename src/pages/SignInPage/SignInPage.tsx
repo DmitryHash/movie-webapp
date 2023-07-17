@@ -92,7 +92,7 @@ export const SignInPage: FC = () => {
             <div className="mainLogo">
                 <Link to={'/'}><Logotype /></Link>
             </div>
-            <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+            <Header titleFilm={() => { }} />
             <form className='sign-in__form'>
                 <Typography content='Sign In' type='H1' />
                 <Input

@@ -1,21 +1,15 @@
-import { FC, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { FC, useState } from "react";
 import { Header } from "../../components/Header/Header";
 import { MovieList } from "../../components/MovieList/MovieList";
 import { Logotype } from "../../assets/icons";
 import { Link } from "react-router-dom";
 import "./MainPage.scss";
 
-interface IMainPage {
-  handleFilterMovie: () => void;
-  handleMoveMain: () => void;
-}
 
-export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) => {
-  const dispatch = useAppDispatch();
+export const MainPage: FC = () => {
 
   const [titleMovie, setTitleMovie] = useState("");
-  
+
   const handleTitleFilm = (newValue: string) => {
     setTitleMovie(newValue);
   };
@@ -26,8 +20,6 @@ export const MainPage: FC<IMainPage> = ({ handleFilterMovie, handleMoveMain }) =
         <Link to={'/'}><Logotype /></Link>
       </div>
       <Header
-        handleFilterMovie={handleFilterMovie}
-        handleMoveMain={handleMoveMain}
         titleFilm={handleTitleFilm}
       />
       <MovieList titleMovie={titleMovie} />

@@ -10,12 +10,8 @@ import { Header } from "../../components/Header/Header";
 import "./Favorites.scss"
 
 
-interface FavoritesProps {
-  handleFilterMovie: () => void;
-  handleMoveMain: () => void;
-}
 
-export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMain }) => {
+export const Favorites: FC = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.favorites.movies);
 
@@ -34,8 +30,6 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           <Link to={'/'}><Logotype /></Link>
         </div>
         <Header
-          handleFilterMovie={handleFilterMovie}
-          handleMoveMain={handleMoveMain}
           titleFilm={handleTitleFilm}
         />
       </div>

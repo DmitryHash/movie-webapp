@@ -13,42 +13,14 @@ export const Router: FC = () => {
 
     return (
         <Routes>
-            <Route path='/favorites' element={<Favorites handleFilterMovie={function (): void {
-                throw new Error('Function not implemented.');
-            }} handleMoveMain={function (): void {
-                throw new Error('Function not implemented.');
-            }} />} />
+            <Route path='/favorites' element={<Favorites />} />
             <Route path="/settings" element={<Settings />} />
-            <Route
-                path=""
-                element={
-                    <MainPage
-                        handleFilterMovie={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                        handleMoveMain={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                    />
-                }
-            />
-            <Route
-                path="/movies/:id"
-                element={
-                    <MovieInfo
-                        match={{
-                            params: {
-                                id: "",
-                            },
-                        }}
-                    />
-                }
-            />
+            <Route path="" element={<MainPage />} />
+            <Route path="/movies/:id" element={<MovieInfo match={{params: {id: "",},}}/>} />
             <Route path="/filtered-movies" element={<FilteredMoviesPage />} />
             <Route path="/" element={<MovieListFilter />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
-
             <Route path="*" element={<>Page is not found</>} />
         </Routes>
     );

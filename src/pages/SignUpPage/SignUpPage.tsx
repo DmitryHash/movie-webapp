@@ -5,7 +5,6 @@ import { Button } from '../../components/Button/Button';
 import './SignUpPage.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { postNewUser } from '../../api/postNewUser';
-import { useAppDispatch } from '../../store/hooks';
 import { Header } from '../../components/Header/Header';
 import { Logotype } from '../../assets/icons';
 
@@ -18,7 +17,6 @@ interface IError {
 
 export const SignUpPage: FC = () => {
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
 
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
@@ -98,7 +96,7 @@ export const SignUpPage: FC = () => {
             <div className="mainLogo">
                 <Link to={'/'}><Logotype /></Link>
             </div>
-            <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+            <Header titleFilm={() => {}} />
             <form className='sign-up__form'>
                 <Typography content='Sign Up' type='H1' />
                 <Input

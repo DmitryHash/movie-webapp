@@ -133,7 +133,7 @@ export const Settings: FC = () => {
                 <div className="mainLogo">
                     <Link to={'/'}><Logotype /></Link>
                 </div>
-                <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+                <Header titleFilm={() => { }} />
                 <Typography content='Profile' type='H1' />
                 <form className='settings__form-profile'>
                     <Input

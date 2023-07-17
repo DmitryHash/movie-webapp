@@ -66,7 +66,7 @@ export const FilteredMoviesPage = () => {
       <div className="mainLogo">
         <Link to={'/'}><Logotype /></Link>
       </div>
-      <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+      <Header titleFilm={() => { }} />
       <Typography content='Filtered Movies' type='H1' />
       {filteredMovies.length > 0 ? (
         <div className="movie-card-container">

@@ -85,7 +85,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           <Logotype />
         </Link>
       </div>
-      <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+      <Header titleFilm={() => { }} />
       <div className="movie-details">
         <div className="movie-poster">
           {movie.Poster !== "N/A" ? (
