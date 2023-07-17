@@ -95,9 +95,9 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                     </ul>
                 ) : (
                     <div className="loader triangle">
-                        <svg viewBox="0 0 86 80">
+                        {/* <svg viewBox="0 0 86 80">
                             <polygon points="43 8 79 72 7 72"></polygon>
-                        </svg>
+                        </svg> */} {/* bug big triangle*/}
                     </div>
                 )}
             </div>
