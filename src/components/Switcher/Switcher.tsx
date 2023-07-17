@@ -17,7 +17,6 @@ export const ControlledSwitches = () => {
       onChange={handleChange}
       onClick={() => dispatch(toggleThemeAction())}
       inputProps={{ 'aria-label': 'controlled' }}
-
     />
   );
 }

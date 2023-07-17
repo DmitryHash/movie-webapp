@@ -58,7 +58,7 @@ export const Header: FC<IHeader> = ({
 
       <div className="header__box">
         {isLogged ? (
-          <UserInfo username="Dmitry Podolnitski " />
+          <UserInfo username="Dmitry Podolnitski" />
         ) : (
           <IconButton onClick={handleClickToSignIn} type="header">
             <UserIcon />

@@ -20,7 +20,7 @@ export const YearInput = ({
     className: string;
   }) => {
 
-    const generatErrorMessage = (message: string | string[]) => typeof message === 'string' ? message : message.join(' ');
+    // const generatErrorMessage = (message: string | string[]) => typeof message === 'string' ? message : message.join(' ');
     return (
       <div>
         <label>{title}</label>

@@ -4,8 +4,8 @@ import axios from 'axios';
 
 import { Button } from '../Button/Button';
 import { YearInput } from '../Input/YearInput';
-import './MovieListFilter.scss'
 import { API_KEY, FILM_URL } from '../../api/urls';
+import './MovieListFilter.scss'
 
 interface IMovie {
   Title: string;

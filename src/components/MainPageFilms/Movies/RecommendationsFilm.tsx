@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
 import { API_KEY, FILM_URL } from '../../../api/urls';
-import "./RecommendationsFilm.scss";
 
 import { TypographyText } from '../../Typography/TypographyText';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import "./RecommendationsFilm.scss";
 
 
 interface IRecommendationsFilm {

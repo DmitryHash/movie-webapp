@@ -1,9 +1,9 @@
 import { FC, useState, useEffect } from "react";
 import { Card } from "../Card/Card";
-import { FILM_URL } from "../../api/urls";
+import { API_KEY, FILM_URL } from "../../api/urls";
 import { Movies } from "../MainPageFilms/Movies";
-import "./MovieList.scss";
 import { Button } from '../../components/Button/Button'
+import "./MovieList.scss";
 
 interface IMovieList {
   titleMovie: string;
@@ -19,7 +19,7 @@ export const MovieList: FC<IMovieList> = ({ titleMovie }) => {
     const fetchMovies = async () => {
       try {
         const search = encodeURIComponent(titleMovie);
-        const URL = `${FILM_URL}?s=${search}&apikey=797d76c8&page=${currentPage}&r=json&plot=full&pageSize=${pageSize}`;
+        const URL = `${FILM_URL}?s=${search}&apikey=${API_KEY}8&page=${currentPage}&r=json&plot=full&pageSize=${pageSize}`;
         const response = await fetch(URL);
         const data = await response.json();
         setMovies(prevMovies => [...prevMovies, ...data.Search || []]);

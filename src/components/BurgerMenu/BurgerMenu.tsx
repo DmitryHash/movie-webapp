@@ -6,6 +6,7 @@ import { isDarktheme } from '../../store/theme/selectors';
 import { IconButton } from '../IconButton/IconButton';
 import { ControlledSwitches } from '../Switcher/Switcher';
 import './BurgerMenu.scss';
+import { TypographyText } from '../Typography/TypographyText';
 
 
 export const BurgerMenu: FC = () => {
@@ -15,7 +16,7 @@ export const BurgerMenu: FC = () => {
     const isDark = useAppSelector(isDarktheme);
 
     const options = [
-        {  id: 1, name: 'Home', url: '/' },
+        { id: 1, name: 'Home', url: '/' },
         { id: 3, name: 'Favorites', url: '/favorites' },
         { id: 4, name: 'Settings', url: '/settings' },
     ]
@@ -53,7 +54,7 @@ export const BurgerMenu: FC = () => {
                 </nav>
                 <div>
                     <div className="burgerMenu__theme-box">
-                        Night mode
+                        <TypographyText content='Night mode' type='subline' />
                         <ControlledSwitches />
                     </div>
                 </div>
