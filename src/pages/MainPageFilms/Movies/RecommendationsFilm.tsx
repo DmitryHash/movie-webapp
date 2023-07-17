@@ -4,12 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
-import { API_KEY } from '../../../api/urls';
+import { API_KEY, FILM_URL } from '../../../api/urls';
 import "./RecommendationsFilm.scss";
 
-import { TypographyText } from '../../Typography/TypographyText';
+import { Typography } from '../../../components/Typography/Typography';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+
+
 interface IRecommendationsFilm {
     genre: string;
 }
@@ -39,16 +41,15 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
         dispatch(removeMovie(imdbID));
     };
 
-
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await fetch(`https://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`);
+                const response = await fetch(`${FILM_URL}?s=${genre}&apikey=${API_KEY}`);
                 const data = await response.json();
 
                 if (data.Search) {
                     const movieIds = data.Search.map((movie: any) => movie.imdbID);
-                    const requests = movieIds.map((id: string) => fetch(`https://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`));
+                    const requests = movieIds.map((id: string) => fetch(`${FILM_URL}?i=${id}&apikey=${API_KEY}`));
                     const responses = await Promise.all(requests);
                     const moviesData = await Promise.all(responses.map((response) => response.json()));
 
@@ -65,8 +66,6 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
     const handleCardClick = (id: string) => {
         navigate(`/movies/${id}`);
     };
-
-
 
     const responsive = {
         superLargeDesktop: {
@@ -90,7 +89,7 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
     return (
         <>
             <div className="recommendations">
-                <h1>Recommendations</h1>
+                <Typography content='Recommendation' type='H1' />
                 {movies.length > 1 ? (
                     <ul className='recommendations--ul'>
                     </ul>
@@ -106,27 +105,27 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                 responsive={responsive}
                 renderButtonGroupOutside={true}
                 arrows={true}
-                // autoPlay={true}
+                autoPlay={true}
                 transitionDuration={100}
                 infinite={false}
             >
-                {movies.map((movie) => (
+                {movies.map(({ Genre, Poster, Title, Year, imdbID, imdbRating }) => (
 
                     <div className="movie-poster">
-                        {favorites.some((favMovie) => favMovie.imdbID === movie.imdbID) ? (
+                        {favorites.some((favMovie) => favMovie.imdbID === imdbID) ? (
                             <button className='movie-poster--favorites'
-                                onClick={() => handleRemoveFromFavorites(movie.imdbID)}
+                                onClick={() => handleRemoveFromFavorites(imdbID)}
                             >
-                                <TypographyText
+                                <Typography
                                     content="Remove Favorite"
                                     type='subline'
                                 />
                             </button>
                         ) : (
                             <button className='movie-poster--favorites'
-                                onClick={() => handleAddToFavorites(movie)}
+                                onClick={() => handleAddToFavorites({ Genre, Poster, Title, Year, imdbID, imdbRating })}
                             >
-                                <TypographyText
+                                <Typography
                                     content="Add to Favorite"
                                     type='subline'
                                 />
@@ -134,8 +133,8 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                         )}
 
                         <button className='movie-poster--btn'>
-                            <TypographyText
-                                content={movie.imdbRating}
+                            <Typography
+                                content={imdbRating}
                                 type='subline'
                             />
                         </button>
@@ -143,13 +142,13 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                         <img
                             className='movie-poster--img'
                             draggable="false"
-                            src={movie.Poster}
-                            alt={movie.Title}
+                            src={Poster}
+                            alt={Title}
                         />
-                        <Link to={`/movies/${movie.imdbID}`} className="movie-link">
-                            <h3 onClick={() => handleCardClick(movie.Genre)}>{movie.Title} </h3>
-                            <h2>{movie.Year}</h2>
-                            <p>{movie.Genre.split(', ').join(' • ')}</p>
+                        <Link to={`/movies/${imdbID}`} className="movie-link">
+                            <Typography content={Title} type='H2' onClick={() => handleCardClick(Genre)} />
+                            <Typography content={Year} type='H3' />
+                            <Typography content={Genre.split(', ').join(' • ')} type='subline' />
                         </Link>
                     </div>
                 ))}

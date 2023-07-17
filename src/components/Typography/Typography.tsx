@@ -1,12 +1,13 @@
 import { FC } from 'react';
-import './TypographyText.scss';
+import './Typography.scss';
 
-interface ITypographyText {
+interface ITypography {
     content: string;
     type: 'H1' | 'H2' | 'H3' | 'subline' | 'textPrimary' | 'textSecondary';
+    onClick?: () => void;
 }
 
-export const TypographyText: FC<ITypographyText> = ({ content, type }) => {
+export const Typography: FC<ITypography> = ({ content, type }) => {
 
     const typographyMap = {
         H1: <h1 className={type}>{content}</h1>,

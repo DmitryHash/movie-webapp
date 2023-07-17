@@ -1,9 +1,9 @@
 import { FC } from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
+import { Typography } from "../Typography/Typography";
 
 interface ICard {
-  key: string;
   image: string;
   titleFilm: string;
   yearFilm: string;
@@ -13,7 +13,6 @@ interface ICard {
 
 
 export const Card: FC<ICard> = ({
-  key,
   image,
   titleFilm,
   yearFilm,
@@ -22,12 +21,12 @@ export const Card: FC<ICard> = ({
 }) => {
   return (
     <Link to={link}>
-      <div className="card" key={key}>
+      <div className="card">
         <img src={image} alt={titleFilm} />
-        <h3 className="card-title">{titleFilm}</h3>
+        <Typography content={titleFilm} type="H2" />
         <div className="card-info">
-          <p className="card-year">{yearFilm}</p>
-          <p className="card-genre">{genreFIlm}</p>
+        <Typography content={yearFilm} type="H3" />
+        <Typography content={genreFIlm} type="subline" />
         </div>
       </div>
     </Link>

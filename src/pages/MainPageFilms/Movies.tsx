@@ -2,17 +2,14 @@ import { FC, useState } from 'react';
 import { Movie } from './Movies/Movie';
 import './Movies.scss';
 import { ShowMore } from './ShowMore/ShowMore';
-import { Card } from '../Card/Card';
 
-interface IMovies {}
+interface IMovies { }
 
 interface IMovie {
   title: string;
   from: number;
   to: number;
 }
-
-
 
 export const Movies: FC<IMovies> = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,13 +33,11 @@ export const Movies: FC<IMovies> = () => {
   return (
     <div className="movies">
       <div className="movies-container">
-        {renderedMovies.map((movie) => (
+        {renderedMovies.map(({ from, title, to }) => (
           <Movie
-            key={movie.title}
-            titleMovie={movie.title}
-            from={movie.from}
-            to={movie.to}
-            
+            titleMovie={title}
+            from={from}
+            to={to}
           />
         ))}
       </div>
@@ -55,8 +50,6 @@ export const Movies: FC<IMovies> = () => {
           />
         )}
       </div>
-  
-      
     </div>
   );
 }

@@ -1,32 +1,23 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { removeMovie, addMovie } from "../../store/favoritesSlice";
+import { removeMovie } from "../../store/favoritesSlice";
 import { Link } from "react-router-dom";
-import { IMovie } from "../../components/MainPageFilms/Movies/RecommendationsFilm";
-import { TypographyText } from "../../components/Typography/TypographyText";
+import { IMovie } from "../MainPageFilms/Movies/RecommendationsFilm";
+import { Typography } from "../../components/Typography/Typography";
 import { Logotype } from "../../assets/icons";
 import { Header } from "../../components/Header/Header";
 import "./Favorites.scss"
 
 
-interface FavoritesProps {
-  handleFilterMovie: () => void;
-  handleMoveMain: () => void;
-}
 
-export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMain }) => {
+export const Favorites: FC = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.favorites.movies);
 
   const handleRemoveFromFavorites = (imdbID: string) => {
     dispatch(removeMovie(imdbID));
   };
-
-  const handleAddToFavorites = (movie: IMovie) => {
-    dispatch(addMovie(movie));
-  };
-
 
   function handleTitleFilm(newValue: string): void {
     throw new Error("Function not implemented.");
@@ -39,44 +30,38 @@ export const Favorites: FC<FavoritesProps> = ({ handleFilterMovie, handleMoveMai
           <Link to={'/'}><Logotype /></Link>
         </div>
         <Header
-
-          handleFilterMovie={handleFilterMovie}
-          handleMoveMain={handleMoveMain}
           titleFilm={handleTitleFilm}
         />
-
-
       </div>
-      <TypographyText content="Favorites" type="H1"/>
+      <Typography content="Favorites" type="H1" />
       {favorites.length > 0 ? (
         <div className="container">
           <ul className="container--ul">
-            {favorites.map(({Genre, Poster, Title, Year, imdbID, imdbRating}: IMovie) => (
-              <li key={imdbID}>
+            {favorites.map(({ Genre, Poster, Title, Year, imdbID, imdbRating }: IMovie) => (
+              <li>
                 <div className="movie-poster">
                   <button className="movie-poster--favorites" onClick={() => handleRemoveFromFavorites(imdbID)}>
-                    <TypographyText
+                    <Typography
                       content="Remove Favorite"
                       type='subline'
                     />
                   </button>
                   <button className="movie-poster--btn">
-                    <TypographyText content={imdbRating} type="subline" />
+                    <Typography content={imdbRating} type="subline" />
                   </button>
                   <img className="movie-poster--img" draggable="false" src={Poster} alt={Title} />
                   <Link to={`/movies/${imdbID}`} className="movie-link">
-                    <TypographyText content={Title} type="H2" />
-                    <TypographyText content={Year} type="H2" />
-                    <TypographyText content={Genre.split(", ").join(" • ")} type="subline" />
+                    <Typography content={Title} type="H2" />
+                    <Typography content={Year} type="H2" />
+                    <Typography content={Genre.split(", ").join(" • ")} type="subline" />
                   </Link>
                 </div>
-
               </li>
             ))}
           </ul>
         </div>
       ) : (
-        <TypographyText content="No movie found" type="subline"/>
+        <Typography content="No movie found" type="subline" />
       )}
     </>
   );

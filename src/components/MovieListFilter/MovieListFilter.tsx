@@ -1,11 +1,11 @@
-import { useState, useEffect, ChangeEvent, FC } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Button } from '../Button/Button';
-import { YearInput } from '../Input/YearInput';
+import { YearInput } from '../YearInput/YearInput';
+import { API_KEY, FILM_URL } from '../../api/urls';
 import './MovieListFilter.scss'
-import { FILM_URL } from '../../api/urls';
 
 interface IMovie {
   Title: string;
@@ -13,7 +13,6 @@ interface IMovie {
 }
 
 export const MovieListFilter = () => {
-  const [movies, setMovies] = useState<IMovie[]>([]);
   const [yearStart, setYearStart] = useState<string>('');
   const [yearEnd, setYearEnd] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -24,14 +23,14 @@ export const MovieListFilter = () => {
     try {
       const response = await axios.get(FILM_URL, {
         params: {
-          apikey: '797d76c8',
+          apikey: `${API_KEY}`,
           s: searchQuery,
           y: `${start}-${end}`,
         },
       });
       const allMovies = response.data.Search || [];
       const filteredMovies = allMovies.filter(
-        (movie: IMovie) => movie.Year >= start && movie.Year <= end
+        ({ Title, Year }: IMovie) => Year >= start && Year <= end
       );
       setFilteredMovies(filteredMovies);
     } catch (error) {
@@ -47,16 +46,16 @@ export const MovieListFilter = () => {
     }
   }, [yearStart, yearEnd, searchQuery]);
 
-  const handleChangeYearStart = (event: ChangeEvent<HTMLInputElement>) => {
-    setYearStart(event.target.value);
+  const handleChangeYearStart = (e: ChangeEvent<HTMLInputElement>) => {
+    setYearStart(e.target.value);
   };
 
-  const handleChangeYearEnd = (event: ChangeEvent<HTMLInputElement>) => {
-    setYearEnd(event.target.value);
+  const handleChangeYearEnd = (e: ChangeEvent<HTMLInputElement>) => {
+    setYearEnd(e.target.value);
   };
 
-  const handleChangeSearchQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleChangeSearchQuery = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
   const handleApplyFilters = () => {

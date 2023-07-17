@@ -1,26 +1,21 @@
-// Header.tsx
 import { FC } from 'react';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { UserInfo } from '../UserInfo/UserInfo';
 import { IconButton } from '../IconButton/IconButton';
-import { CancelIcon, UserIcon, Logotype } from '../../assets/icons';
+import { UserIcon } from '../../assets/icons';
 import { useNavigate } from 'react-router';
-import './Header.scss';
 import { ModalFilter } from '../ModalFilter/ModalFilter';
 import { useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
+import './Header.scss';
 
 
 interface IHeader {
-  handleMoveMain: () => void;
-  handleFilterMovie: () => void;
   titleFilm: (newValue: string) => void;
   isSearchDisabled?: boolean;
 }
 
 export const Header: FC<IHeader> = ({
-  handleMoveMain,
-  handleFilterMovie,
   titleFilm,
   isSearchDisabled = false
 }) => {
@@ -32,9 +27,6 @@ export const Header: FC<IHeader> = ({
     navigate('/sign-in');
   };
 
-  const handleClickToHome = () => {
-    navigate('/posts');
-  };
 
   const inputClass = `search-input ${isSearchDisabled && 'search-film__disabled'}`;
 
@@ -58,7 +50,7 @@ export const Header: FC<IHeader> = ({
 
       <div className="header__box">
         {isLogged ? (
-          <UserInfo username="Dmitry Podolnitski " />
+          <UserInfo username="Dmitry Podolnitski" />
         ) : (
           <IconButton onClick={handleClickToSignIn} type="header">
             <UserIcon />

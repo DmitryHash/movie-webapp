@@ -5,8 +5,8 @@ import { Card } from '../../components/Card/Card';
 import './FilteredMoviePage.scss';
 import { Logotype } from '../../assets/icons';
 import { Header } from '../../components/Header/Header';
-import { TypographyText } from '../../components/Typography/TypographyText';
-import { FILM_URL } from '../../api/urls';
+import { Typography } from '../../components/Typography/Typography';
+import { API_KEY, FILM_URL } from '../../api/urls';
 
 interface Movie {
   Genre: string;
@@ -29,7 +29,7 @@ export const FilteredMoviesPage = () => {
       try {
         const response = await axios.get(FILM_URL, {
           params: {
-            apikey: '797d76c8',
+            apikey: `${API_KEY}`,
             s: searchQuery,
           },
         });
@@ -45,19 +45,18 @@ export const FilteredMoviesPage = () => {
         console.error(error);
       }
     };
-  
+
     fetchFilteredMovies();
   }, [searchQuery, yearStart, yearEnd]);
 
-  const renderMovieCard = (movie: Movie) => {
+  const renderMovieCard = ({ Genre, Poster, Title, Year, imdbID }: Movie) => {
     return (
       <Card
-        key={movie.imdbID}
-        image={movie.Poster}
-        titleFilm={movie.Title}
-        yearFilm={movie.Year}
-        genreFIlm={movie.Genre}
-        link={`/movies/${movie.imdbID}`} 
+        image={Poster}
+        titleFilm={Title}
+        yearFilm={Year}
+        genreFIlm={Genre}
+        link={`/movies/${imdbID}`}
       />
     );
   };
@@ -65,16 +64,16 @@ export const FilteredMoviesPage = () => {
   return (
     <div>
       <div className="mainLogo">
-        <Link to={'/'}><Logotype/></Link>
+        <Link to={'/'}><Logotype /></Link>
       </div>
-      <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
-      <TypographyText content='Filtered Movies' type='H1'/>
+      <Header titleFilm={() => { }} />
+      <Typography content='Filtered Movies' type='H1' />
       {filteredMovies.length > 0 ? (
         <div className="movie-card-container">
           {filteredMovies.map((movie) => renderMovieCard(movie))}
         </div>
       ) : (
-        <p>No movies found.</p>
+        <Typography content='No movies found.' type='subline' />
       )}
     </div>
   );

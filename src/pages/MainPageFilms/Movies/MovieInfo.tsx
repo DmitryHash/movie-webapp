@@ -1,16 +1,15 @@
 import { FC, useEffect, useState } from "react";
-import { FILM_URL } from "../../../api/urls";
 import { Link, useParams } from "react-router-dom";
-import { Header } from "../../Header/Header";
-import "./MovieInfo.scss";
-import { TypographyText } from "../../Typography/TypographyText";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { addMovie, removeMovie } from "../../../store/favoritesSlice";
-import { Button } from "../../Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { Logotype } from "../../../assets/icons";
 import { RecommendationsFilm } from "./RecommendationsFilm";
-import { API_KEY } from "../../../api/urls";
+import { API_KEY, FILM_URL } from "../../../api/urls";
+import { Header } from "../../../components/Header/Header";
+import "./MovieInfo.scss";
+import { Typography } from "../../../components/Typography/Typography";
 
 interface IMovieInfo {
   match: {
@@ -18,14 +17,31 @@ interface IMovieInfo {
   };
 }
 
+interface IMovie {
+  imdbID: string;
+  Title: string;
+  Genre: string;
+  Poster: string;
+  imdbRating: string;
+  Runtime: string;
+  Plot: string;
+  Year: string;
+  Released: string;
+  BoxOffice: string;
+  Country: string;
+  Actors: string;
+  Director: string;
+  Writer: string;
+}
+
 export const MovieInfo: FC<IMovieInfo> = () => {
   const { id } = useParams<{ id: string }>();
-  const [movie, setMovie] = useState<any>();
+  const [movie, setMovie] = useState<IMovie | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const URL = `${FILM_URL}?i=${id}&apikey=797d76c8`;
+        const URL = `${FILM_URL}?i=${id}&apikey=${API_KEY}`;
         const response = await fetch(URL);
         const data = await response.json();
         setMovie(data);
@@ -43,7 +59,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
     dispatch(removeMovie(imdbID));
   };
 
-  const handleAddToFavorites = (movie: any): void => {
+  const handleAddToFavorites = (movie: IMovie): void => {
     dispatch(addMovie(movie));
   };
 
@@ -51,14 +67,16 @@ export const MovieInfo: FC<IMovieInfo> = () => {
     return (
       <div className="ui-loader loader-blk">
         <svg viewBox="22 22 44 44" className="multiColor-loader">
-          <circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" className="loader-circle loader-circle-animation"></circle>
+          <circle cx="44" cy="44" r="20.2" fill="none" strokeWidth="3.6" className="loader-circle loader-circle-animation"></circle>
         </svg>
       </div>
     );
   }
 
-  const genreArray = movie.Genre.split(","); // Преобразование строки в массив
-  const genreString = genreArray.join(` • `);
+  const genreArray = movie.Genre.split(",");
+  const genreString = genreArray.join(" • ");
+
+  const isFavorite = favorites.some((favMovie) => favMovie.imdbID === movie.imdbID);
 
   return (
     <>
@@ -67,21 +85,17 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           <Logotype />
         </Link>
       </div>
-      <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
+      <Header titleFilm={() => { }} />
       <div className="movie-details">
         <div className="movie-poster">
           {movie.Poster !== "N/A" ? (
             <>
               <img className="movie-poster--img" src={movie.Poster} alt={movie.Title} />
-              {favorites.some((favMovie: { imdbID: any; }) => favMovie.imdbID === movie.imdbID) ? (
-                <Button
-                  type={"primary"}
-                  content={"Remove from Favorites"}
-                  onClick={() => handleRemoveFromFavorites(movie.imdbID)}
-                />
-              ) : (
-                <Button type={"primary"} content={"Add to Favorites"} onClick={() => handleAddToFavorites(movie)} />
-              )}
+              <Button
+                type="primary"
+                content={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+                onClick={() => (isFavorite ? handleRemoveFromFavorites(movie.imdbID) : handleAddToFavorites(movie))}
+              />
             </>
           ) : (
             <img
@@ -92,14 +106,16 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           )}
         </div>
         <div className="movie-info">
-          <TypographyText content={genreString} type="subline" />
-          <TypographyText content={movie.Title} type="H1" />
+          <Typography content={genreString} type="subline" />
+          <Typography content={movie.Title} type="H1" />
           <p className="movie-rating">
             <span className="movie-rating--green">{movie.imdbRating}</span>
             <span>IMDb {movie.imdbRating}</span>
             <span>{movie.Runtime}</span>
           </p>
-          <p className="movie-info--plot">{movie.Plot}</p>
+          <div className="movie-info--plot">
+            <Typography content={movie.Plot} type="subline" />
+          </div>
           <div className="movie-info--genres">
             <ul>
               <li>
@@ -140,7 +156,7 @@ export const MovieInfo: FC<IMovieInfo> = () => {
           </div>
         </div>
       </div>
-      <RecommendationsFilm genre={genreArray[0]} />
+      <RecommendationsFilm genre={movie.Title} />  {/* genre={genreArray[0]} */}
     </>
   );
 };

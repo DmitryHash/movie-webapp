@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import './Settings.scss';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { Header } from '../../components/Header/Header';
@@ -12,7 +12,7 @@ interface IError {
     username: string | string[];
     email: string | string[];
     password: string | string[];
-    newPassword: string | string [];
+    newPassword: string | string[];
     confirmPassword: string | string[];
 }
 
@@ -31,7 +31,6 @@ export const Settings: FC = () => {
         confirmPassword: '',
     });
 
-
     const inputUserNameRef = useRef<HTMLInputElement>(null);
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputPasswordRef = useRef<HTMLInputElement>(null);
@@ -44,36 +43,34 @@ export const Settings: FC = () => {
         }
     }, []);
 
-
     const handleChangeName = (newValue: string) => {
         setUserName(newValue);
-        setErrors(errors => ({...errors, username: '', detail: ''}));
+        setErrors(errors => ({ ...errors, username: '', detail: '' }));
     }
 
     const handleChangeEmail = (newValue: string) => {
         setEmail(newValue);
-        setErrors(errors => ({...errors, email: '', detail: ''}));
+        setErrors(errors => ({ ...errors, email: '', detail: '' }));
 
     }
 
     const handleChangePassword = (newValue: string) => {
         setPassword(newValue);
-        setErrors(errors => ({...errors, password: '', detail: ''}));
+        setErrors(errors => ({ ...errors, password: '', detail: '' }));
 
     }
 
     const handleChangeNewPassword = (newValue: string) => {
         setNewPassword(newValue);
-        setErrors(errors => ({...errors, newPassword: '', detail: ''}));
+        setErrors(errors => ({ ...errors, newPassword: '', detail: '' }));
 
     }
 
     const handleChangeConfirmPassword = (newValue: string) => {
         setConfirmPassowrd(newValue);
-        setErrors(errors => ({...errors, confirmPassword: '', detail: ''}));
+        setErrors(errors => ({ ...errors, confirmPassword: '', detail: '' }));
 
     }
-
 
     const validateForm = () => {
         const newErrors: IError = {
@@ -122,7 +119,7 @@ export const Settings: FC = () => {
         validateForm();
     }
 
-    const handleCleareForm =() => {
+    const handleCleareForm = () => {
         setUserName('');
         setEmail('');
         setPassword('');
@@ -136,8 +133,8 @@ export const Settings: FC = () => {
                 <div className="mainLogo">
                     <Link to={'/'}><Logotype /></Link>
                 </div>
-                <Header handleFilterMovie={() => { }} handleMoveMain={() => { }} titleFilm={() => { }} />
-                <TypographyText content='Profile' type='H1' />
+                <Header titleFilm={() => { }} />
+                <Typography content='Profile' type='H1' />
                 <form className='settings__form-profile'>
                     <Input
                         title='Name'
@@ -157,7 +154,7 @@ export const Settings: FC = () => {
 
                     />
                 </form>
-                <TypographyText content='Password' type='H2' />
+                <Typography content='Password' type='H2' />
                 <form className='settings__form-password'>
                     <Input
                         title='Password'

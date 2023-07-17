@@ -1,8 +1,9 @@
 import { FC, useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import { FILM_URL } from "../../api/urls";
-import { Movies } from "../MainPageFilms/Movies";
+import { Movies } from "../../pages/MainPageFilms/Movies";
 import "./MovieList.scss";
+import { Button } from '../../components/Button/Button'
 
 interface IMovieList {
   titleMovie: string;
@@ -43,7 +44,6 @@ export const MovieList: FC<IMovieList> = ({ titleMovie }) => {
     <div className="card-list">
       {movies.map((item) => (
         <Card
-          key={item.imdbID}
           image={item["Poster"] !== "N/A" ? item["Poster"] : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png"}
           titleFilm={item["Title"]}
           yearFilm={item["Year"]}
@@ -53,9 +53,7 @@ export const MovieList: FC<IMovieList> = ({ titleMovie }) => {
       ))}
       {!movies.length && <Movies />}
       {totalResults > movies.length && (
-        <button className="load-more-button" onClick={handleLoadMore}>
-          Load More
-        </button>
+        <Button content="Load More" onClick={handleLoadMore} type="primary" />
       )}
     </div>
   );

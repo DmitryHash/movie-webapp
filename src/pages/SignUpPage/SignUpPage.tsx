@@ -1,12 +1,10 @@
 import { FC, useState } from 'react';
-import { TypographyText } from '../../components/Typography/TypographyText';
+import { Typography } from '../../components/Typography/Typography';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import './SignUpPage.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { postNewUser } from '../../api/postNewUser';
-import { useAppDispatch } from '../../store/hooks';
-// import { setConfirmEmailAction } from '../../store/confirmEmail/actions';
 import { Header } from '../../components/Header/Header';
 import { Logotype } from '../../assets/icons';
 
@@ -19,7 +17,6 @@ interface IError {
 
 export const SignUpPage: FC = () => {
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
 
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
@@ -32,7 +29,6 @@ export const SignUpPage: FC = () => {
         password: '',
         confirmPassword: '',
     });
-
 
     const handleChangeName = (newValue: string) => {
         setUserName(newValue);
@@ -68,16 +64,16 @@ export const SignUpPage: FC = () => {
         }
         if (!password) {
             newErrors.password = 'Password is required';
-        }  else if (password.length < 6) {
+        } else if (password.length < 6) {
             newErrors.password = 'Password must be at least 6 characters long';
-          }
+        }
         if (!confirmPassword) {
             newErrors.confirmPassword = 'Confirm password is required';
         } else if (password !== confirmPassword) {
             newErrors.confirmPassword = 'Passwords do not match';
             newErrors.password = 'Passwords do not match';
         }
-        
+
         let isValid = Object.values(newErrors).every(error => error === '');
         if (isValid) {
             return true;
@@ -89,21 +85,20 @@ export const SignUpPage: FC = () => {
 
     const handleSubmit = () => {
         if (validateForm()) {
-            postNewUser({username, email, password}).then(() => {
-                // dispatch(setConfirmEmailAction(email));
+            postNewUser({ username, email, password }).then(() => {
                 navigate('/confirm-registration');
-            }).catch((error) => setErrors(prev => ({...prev, ...error.response.data})));
+            }).catch((error) => setErrors(prev => ({ ...prev, ...error.response.data })));
         }
     }
 
     return (
         <div className='sign-up'>
             <div className="mainLogo">
-                <Link to={'/'}><Logotype/></Link>
+                <Link to={'/'}><Logotype /></Link>
             </div>
-            <Header handleFilterMovie={() => {}} handleMoveMain={() => {}} titleFilm={() => {}}/>
+            <Header titleFilm={() => {}} />
             <form className='sign-up__form'>
-            <TypographyText content='Sign Up' type='H1'/>
+                <Typography content='Sign Up' type='H1' />
                 <Input
                     title='Name'
                     placeholder='Your name'
@@ -135,9 +130,9 @@ export const SignUpPage: FC = () => {
                 <Button content='Sign Up' onClick={handleSubmit} type='primary' />
                 <p className='sign-up__form-description'>
                     Already have an account? {' '}
-                <Link to='/sign-in' className='sign-up__form-link'>
-                    Sign In
-                </Link>
+                    <Link to='/sign-in' className='sign-up__form-link'>
+                        Sign In
+                    </Link>
                 </p>
             </form>
         </div>

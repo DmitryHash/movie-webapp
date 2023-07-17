@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
-import './ModalFilter.scss';
-import { TypographyText } from '../Typography/TypographyText';
+import { Typography } from '../Typography/Typography';
 import Filters from '../../assets/icons/filters.svg';
 import { MovieListFilter } from '../MovieListFilter/MovieListFilter';
 import { useAppSelector } from '../../store/hooks';
 import { isDarktheme } from '../../store/theme/selectors';
+import './ModalFilter.scss';
 
 interface IModalProps {
   onClose: () => void;
@@ -33,7 +33,7 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
       <div className={`modal-overlay ${isDark ? 'dark' : 'light'} ${isOpen ? 'modal-open' : ''}`}>
         <div className={`modal-content ${modalStyles}`}>
           <div className='modal-content-header'>
-            <TypographyText content='Filter' type='H2' />
+            <Typography content='Filter' type='H2' />
             <button className='modal-content-header-close-btn' onClick={closeModal}>
               X
             </button>
