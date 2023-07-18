@@ -1,11 +1,11 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Button } from '../Button/Button';
 import { YearInput } from '../YearInput/YearInput';
 import { API_KEY, FILM_URL } from '../../api/urls';
-import './MovieListFilter.scss'
+import './MovieListFilter.scss';
 
 interface IMovie {
   Title: string;
@@ -29,22 +29,13 @@ export const MovieListFilter = () => {
         },
       });
       const allMovies = response.data.Search || [];
-      const filteredMovies = allMovies.filter(
-        ({ Title, Year }: IMovie) => Year >= start && Year <= end
-      );
+      const filteredMovies = allMovies.filter(({ Title, Year }: IMovie) => Year >= start && Year <= end);
       setFilteredMovies(filteredMovies);
+      navigate(`/filtered-movies?searchQuery=${searchQuery}&yearStart=${start}&yearEnd=${end}`);
     } catch (error) {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    if (yearStart && yearEnd) {
-      fetchMoviesByYearRange(yearStart, yearEnd);
-    } else {
-      setFilteredMovies([]);
-    }
-  }, [yearStart, yearEnd, searchQuery]);
 
   const handleChangeYearStart = (e: ChangeEvent<HTMLInputElement>) => {
     setYearStart(e.target.value);
@@ -59,15 +50,19 @@ export const MovieListFilter = () => {
   };
 
   const handleApplyFilters = () => {
-    fetchMoviesByYearRange(yearStart, yearEnd);
-    navigate(`/filtered-movies?searchQuery=${searchQuery}&yearStart=${yearStart}&yearEnd=${yearEnd}`);
+    if (yearStart && yearEnd) {
+      fetchMoviesByYearRange(yearStart, yearEnd);
+    } else {
+      setFilteredMovies([]);
+    }
   };
 
   const handleClearFilters = () => {
     setYearStart('');
     setYearEnd('');
     setSearchQuery('');
-  }
+    setFilteredMovies([]);
+  };
 
   return (
     <div>
@@ -78,7 +73,7 @@ export const MovieListFilter = () => {
           value={searchQuery}
           onChange={handleChangeSearchQuery}
           placeholder="Enter Movie Title"
-          className='movieTitle-input'
+          className="movieTitle-input"
         />
       </div>
       <YearInput
@@ -86,24 +81,23 @@ export const MovieListFilter = () => {
         value={yearStart}
         handleChange={handleChangeYearStart}
         placeholder="Start Year"
-        className='year-input'
+        className="year-input"
       />
       <YearInput
         title="To"
         value={yearEnd}
         handleChange={handleChangeYearEnd}
         placeholder="End Year"
-        className='year-input'
+        className="year-input"
       />
-      <div className='filtersBtn'>
-        <div className='apply-btn'>
-          <Button onClick={handleApplyFilters} content='Apply filters' type='primary' />
+      <div className="filtersBtn">
+        <div className="apply-btn">
+          <Button onClick={handleApplyFilters} content="Apply filters" type="primary" />
         </div>
-        <div className='clear-btn'>
-          <Button onClick={handleClearFilters} content='Clear' type='secondary' />
+        <div className="clear-btn">
+          <Button onClick={handleClearFilters} content="Clear" type="secondary" />
         </div>
       </div>
     </div>
   );
 };
-

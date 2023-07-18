@@ -94,11 +94,11 @@ export const RecommendationsFilm: FC<IRecommendationsFilm> = ({ genre }) => {
                     <ul className='recommendations--ul'>
                     </ul>
                 ) : (
-                    <div className="loader triangle">
-                        {/* <svg viewBox="0 0 86 80">
-                            <polygon points="43 8 79 72 7 72"></polygon>
-                        </svg> */} {/* bug big triangle*/}
-                    </div>
+                    <div className="ui-loader loader-blk">
+                        <svg viewBox="22 22 44 44" className="multiColor-loader">
+                            <circle cx="44" cy="44" r="20.2" fill="none" strokeWidth="3.6" className="loader-circle loader-circle-animation"></circle>
+                        </svg>
+                    </div> //Loader либо убрать либо пока хз
                 )}
             </div>
             <Carousel
