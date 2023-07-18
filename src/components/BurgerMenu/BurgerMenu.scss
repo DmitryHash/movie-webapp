@@ -7,8 +7,6 @@
     align-items: center;
     border: none;
     
-    
-
         &__content {
             position: absolute;
             top: 84px;
@@ -16,7 +14,6 @@
             z-index: 100;
             width: 236px;
             height: 450px;
-            // background-color: #000;
             transform: translateX(-250px);
             transition: transform .3s ease-in-out;
             display: flex;
@@ -54,7 +51,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            // color: #fff;
         }
         
         &__theme-btn {
@@ -63,15 +59,10 @@
             background: none;
             cursor: pointer;
     
-             &:first-child {
-            }
     
           &:disabled {
             cursor: auto;
     
-            svg path { 
-              // fill: #DADADA;
-            }
           }
         }
 }

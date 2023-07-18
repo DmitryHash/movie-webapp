@@ -33,7 +33,7 @@ export const ModalFilter: FC<IModalProps> = ({ onClose }) => {
       <div className={`modal-overlay ${isDark ? 'dark' : 'light'} ${isOpen ? 'modal-open' : ''}`}>
         <div className={`modal-content ${modalStyles}`}>
           <div className='modal-content-header'>
-            <Typography content='Filter' type='H2' />
+            <Typography content='Filters' type='H2' />
             <button className='modal-content-header-close-btn' onClick={closeModal}>
               X
             </button>
