@@ -76,7 +76,7 @@ export const SignInPage: FC = () => {
             postLogin({ email, password }).then((data) => {
                 localStorage.setItem('access_token', data.access);
                 localStorage.setItem('refresh_token', data.refresh);
-                navigate('/posts');
+                navigate('/');
             }).catch((error) => setErrors(prev => ({ ...prev, ...error.response.data })));
         }
     }
