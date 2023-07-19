@@ -13,11 +13,11 @@ To run the project locally, follow the steps below:
 1. Clone the repository to your local machine.
 2. Open your preferred code editor and navigate to the project directory.
 3. Open the terminal within the code editor.
-4. Run the command <h3>npm install</h3> to install all the required dependencies.
+4. Run the command <h4>npm install</h4> to install all the required dependencies.
 5. Wait for the installation process to complete.
 6. (Optional) Restart the code editor to avoid any potential errors.
 7. Open the terminal again (if you restarted the code editor).
-8. Run the command <h3>npm start</h3> to start the application.
+8. Run the command <h4>npm start</h4> to start the application.
 
 The above steps will set up the project and launch it in your default browser.
 
